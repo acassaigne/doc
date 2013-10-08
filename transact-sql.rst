@@ -31,3 +31,8 @@ TDD
 http://tsqlt.org/146/database-test-driven-development/
 http://sqlmag.com/t-sql/getting-started-test-driven-design-sql-server
 http://msdn.microsoft.com/en-us/magazine/cc164243.aspx
+
+Best practice
+=============
+
+- http://sqlmag.com/t-sql/t-sql-best-practices-part-1
