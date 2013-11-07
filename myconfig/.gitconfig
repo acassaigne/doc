@@ -1,0 +1,28 @@
+[user]
+	name = Anthony Cassaigne
+	email = anthony.cassaigne@gmail.com
+[push]
+	default = simple
+[core]
+	autocrlf = input
+	eol = lf
+[alias]
+	st = status
+    df = diff
+    co = checkout
+    ci = commit
+    br = branch
+    amend = commit --amend # edit le dernier commit
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    lp = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[diff]
+    tool = winmerge
+
+[difftool "winmerge"]
+    cmd = "winmerge.sh \"$LOCAL\" \"$REMOTE\""
+
+[difftool]
+	prompt = false
