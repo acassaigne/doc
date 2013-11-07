@@ -28,6 +28,14 @@ La commande est ::
 Gestion de l'index
 ------------------
 
+Ajouter tous les fichier ayant .rst en suffix ::
+
+  git add *.rst
+
+Ajouter tous les fichiers ::
+
+  git add -all
+
 Pour ajouter un fichier dans l'index ::
 
    git add filename.txt
