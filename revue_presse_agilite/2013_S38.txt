@@ -1,0 +1,14 @@
+Revue de presse Agile de la semaine 38 de l'année 2013.
+
+
+Avec ce premier "article" nous initions le concept de revue de presse dont le centre d'intérêt est l'agilité. L'objectif de ce mini-article est de fournir une liste de liens (url) concernant des articles récents (parfois un peu moins) ayant trait à l'agilité. Il s'agit donc d'une sélection d'articles de presse et non de prises de position. Bonne lecture.
+
+Sommaire :
+
+http://martinfowler.com/bliki/CannotMeasureProductivity.html
+http://www.infoq.com/fr/articles/managing-technical-debt
+http://mobprogramming.org/mob-programming-your-way/
+http://fr.slideshare.net/cltservices/ale-2013-from-software-devt-to-building-an-agile-company
+http://ebgconsulting.com/blog/the-4l%E2%80%99s-a-retrospective-technique/
+http://www.jrothman.com/blog/mpd/2013/08/trust-agile-program-management-being-effective.html
+http://www.infoq.com/fr/articles/hiring-geeks-fit-book
