@@ -2,6 +2,16 @@
 Git
 ***
 
+
+
+Info sur le dépôt
+=================
+
+Pour obtenir des infor sur le/les dépôts distants utiliser cette commande ::
+
+  git remote -v
+
+
 Pour Windows
 ============
 
