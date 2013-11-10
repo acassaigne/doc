@@ -629,6 +629,14 @@ Graver un cd/dvd ::
     wodim -v dev=/dev/dvd -data g.iso
 
 
+Comment copier un cdrom
+-----------------------
+
+La commande la plus simple est `dd` ::
+
+  dd if=/dev/cdrom of=mon_fichier.iso
+
+
 Comment copier un dvd
 ----------------------
 
