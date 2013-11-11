@@ -628,6 +628,11 @@ Graver un cd/dvd ::
     growisofs -dvd-compat -Z /dev/dvd=image.iso
     wodim -v dev=/dev/dvd -data g.iso
 
+Utiliser l'option -dvd-compat permet de clore définitive la session.
+Ce qui apporte une meilleure compatibilité.
+
+A priori l'option -speed=2 permet de fixer une vitesse de gravage.
+
 
 Comment copier un cdrom
 -----------------------
