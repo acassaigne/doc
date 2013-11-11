@@ -331,6 +331,14 @@ Pousser une nouvelle branche vers le dépôt d'origine ::
 
   git push --set-upstream origin ma_nouvelle_branche
 
+Vérifier que la branche bien été poussée ::
+
+  git remote show origin
+
+Suivre une branche d'un dépôt distant ::
+
+  git checkout -b ma_branche origin/ma_branche
+
 Reflog
 ======
 
