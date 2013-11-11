@@ -2,8 +2,6 @@
 Git
 ***
 
-
-
 Info sur le dépôt
 =================
 
@@ -265,9 +263,8 @@ On devrait pouvoir le retrouver à condition que le garbage collector ne soit pa
 
 Voir ce lien http://gitready.com/advanced/2009/01/17/restoring-lost-commits.html
 
-
 Récupérer un fichier d'une branche sur une autre
--------------- ---------------------------------
+------------------------------------------------
 
 Pour cela checkout ::
 
@@ -315,7 +312,24 @@ la commande est de ce type ::
 Ne pas oublier le / à la fin du chemin_prefix_pour_le_zip car sinon ca devient un prefix pour tous les fichiers
 qui seront inclus dans le zip.
 
+Travailler avec les branches
+============================
 
+Pour créer une branche ::
+
+  git branch ma_branche
+
+Pour se placer dans la branche ::
+
+  git checkout ma_branche
+
+Voir les branches ::
+
+  git branch -a
+
+Pousser une nouvelle branche vers le dépôt d'origine ::
+
+  git push --set-upstream origin ma_nouvelle_branche
 
 Reflog
 ======
