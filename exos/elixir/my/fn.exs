@@ -16,7 +16,7 @@ end
 
 print_len_list = fn
  ( [] ) -> IO.puts "It's an empty list !"
- ( [head | tail ] ) ->
+ ( [head | tail] ) ->
      len = 1 + length tail
      IO.puts "The lenght of list is #{len}"
 end
