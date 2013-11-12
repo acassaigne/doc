@@ -452,6 +452,10 @@ Utiliser la commande ::
 Travailler avec github
 ======================
 
+Pull request et branch, apporter des corrections à une PR.
+Voir les informations ci-dessous.
+http://stackoverflow.com/questions/7947322/preferred-github-workflow-for-updating-a-pull-request-after-code-review
+
 Utiliser la commande hub (dev. en ruby) ::
 
   http://tck.io/posts/github_and_workflows.html
