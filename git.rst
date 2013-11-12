@@ -449,6 +449,13 @@ Utiliser la commande ::
 
   git remote rm origin
 
+Travailler avec github
+======================
+
+Utiliser la commande hub (dev. en ruby) ::
+
+  http://tck.io/posts/github_and_workflows.html
+
 A regarder
 ----------
 
