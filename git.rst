@@ -332,12 +332,27 @@ Pousser une nouvelle branche vers le dépôt d'origine ::
   git push --set-upstream origin ma_nouvelle_branche
 
 
+Rebase
+======
+
+Documentation intéressante ! http://mettadore.com/analysis/a-simple-git-rebase-workflow-explained/
+également intéressant http://randyfay.com/content/rebase-workflow-git
+http://gitready.com/intermediate/2009/01/31/intro-to-rebase.html
+
+
+synchronosation
+===============
+
+https://help.github.com/articles/syncing-a-fork
+http://www.croes.org/gerald/blog/synchroniser-son-fork-github-avec-le-projet-original/551/
+
 Push vers le dépôt distant
 ==========================
 
 Verifier si tous les commits sont poussés ::
 
   git diff --stat origin/master..
+  git diff origin/master..HEAD
   git push --dry-run
 
 Reflog
@@ -364,7 +379,6 @@ Faut-il tout de même avoir un fichier .gitattributes contenant ceci ::
 Voir à cette adresse _eol_git
 
 .. _eol_git: https://help.github.com/articles/dealing-with-line-endings
-
 
 
 Configuration git difftool
