@@ -38,11 +38,15 @@ Gestion de l'index
 
 Ajouter tous les fichier ayant .rst en suffix ::
 
-  git add *.rst
+   git add *.rst
+
+Supprimer un fichier de l'index ::
+
+   git rm --cached FILE
 
 Ajouter tous les fichiers ::
 
-  git add -all
+   git add -all
 
 Pour ajouter un fichier dans l'index ::
 
@@ -54,7 +58,7 @@ Pour retirer un fichier de l'index ::
 
 Est-ce des fichier dans la Working Directory qui ne sont pas dans l'index ::
 
-  git diff
+   git diff
 
 Annuler toutes les modifications
 --------------------------------
@@ -485,6 +489,8 @@ Utiliser la commande hub (dev. en ruby) ::
 
 A regarder
 ----------
+
+Quick resource : http://jonas.nitro.dk/git/quick-reference.html
 
 A regarder ``Gerrit`` pour la revue de code.
 
