@@ -335,6 +335,19 @@ Pousser une nouvelle branche vers le dépôt d'origine ::
 
   git push --set-upstream origin ma_nouvelle_branche
 
+Supprimer localement une branche ::
+
+  git branch -d la_branche_a_supprimer
+
+Supprimer la branche distante ::
+
+  git push origin --delete la_branche_distante
+
+résultat en sortie ::
+
+  To https://github.com/dojo-toulouse/elixir-koans
+  - [deleted]         anonymous_functions
+
 
 Rebase
 ======
