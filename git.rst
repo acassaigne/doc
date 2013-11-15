@@ -492,6 +492,15 @@ Utiliser la commande ::
 
   git remote rm origin
 
+Compresser le repo git
+----------------------
+
+Quand git gui indique que la base doit être compressée,
+il convient de lancer la commande ::
+
+  git gc
+
+
 Travailler avec github
 ======================
 
@@ -505,6 +514,8 @@ Utiliser la commande hub (dev. en ruby) ::
 
 A regarder
 ----------
+
+Resource à creuser : https://github.com/github/teach.github.com/blob/gh-pages/courses/_posts/2001-02-25-git-advanced-course.md
 
 Quick resource : http://jonas.nitro.dk/git/quick-reference.html
 
