@@ -1,28 +1,37 @@
 [user]
-	name = Anthony Cassaigne
 	email = anthony.cassaigne@gmail.com
+	name = Anthony Cassaigne
 [push]
 	default = simple
-[core]
-	autocrlf = input
-	eol = lf
+
 [alias]
-	st = status
-    df = diff
-    co = checkout
-    ci = commit
-    br = branch
-    amend = commit --amend # edit le dernier commit
-    lol = log --graph --decorate --pretty=oneline --abbrev-commit
-    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-    lp = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+      st = status
+      df = diff
+      co = checkout
+      ci = commit
+      br = branch
+      whatpush = diff --stat origin/master.. # voir les commits non poussés
+      fakepush = push --dry-run
+      amend = commit --amend # editer le dernier commit
+      lol = log --graph --decorate --pretty=oneline --abbrev-commit
+      lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+      lp = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+      lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+      graph = log --graph --all --pretty=format:'%Cred%h%Creset - %Cgreen(%cr)%Creset %s%C(yellow)%d%Creset' --abbrev-commit --date=relative
+      overview= log --graph --simplify-by-decoration --decorate --pretty=format:'%cd%Cgreen%d %Cblue%h %Creset%s' --date=short
 
-[diff]
-    tool = winmerge
+[merge]
+tool = mymeld
+[mergetool "mymeld"]
+cmd = meld --diff $BASE $LOCAL --diff $BASE $REMOTE --diff $LOCAL $MERGED $REMOTE
 
-[difftool "winmerge"]
-    cmd = "winmerge.sh \"$LOCAL\" \"$REMOTE\""
+# Autre config à tester
+#[merge]
+#tool = mymeld
+#conflictstyle = diff3
+#[mergetool "mymeld"]
+#cmd = meld --diff $BASE $LOCAL --diff $BASE $REMOTE --diff $LOCAL $BASE $REMOTE $MERGED
 
-[difftool]
-	prompt = false
+#Ou bien utiliser cette configuration
+#[mergetool "mymeld"]
+#cmd = meld $LOCAL $BASE $REMOTE -o $MERGED --diff $BASE $LOCAL --diff $BASE $REMOTE
