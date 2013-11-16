@@ -457,6 +457,21 @@ Utiliser la commande ::
 
   git remote rm origin
 
+git & github
+============
+
+A regarder la commande hub écrite en ruby ::
+
+  hub
+
+url https://github.com/github/hub
+
+Pour l'installer ::
+
+   git clone https://github.com/github/hub
+   cd hub
+   sudo rake install
+
 A regarder
 ----------
 
