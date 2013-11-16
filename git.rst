@@ -388,13 +388,14 @@ p4merge.
 Rebase
 ======
 
-Documentation intéressante ! http://mettadore.com/analysis/a-simple-git-rebase-workflow-explained/
-également intéressant http://randyfay.com/content/rebase-workflow-git
-http://gitready.com/intermediate/2009/01/31/intro-to-rebase.html
+Documentation intéressante : http://mettadore.com/analysis/a-simple-git-rebase-workflow-explained/
+également intéressant à étudier :
 
-http://labs.excilys.com/2012/02/28/preparez-vous-a-reecrire-lhistoire-avec-git-rebase/
-http://alx.github.io/gitbook/4_recombinaison_(rebase).html
-http://git-scm.com/book/fr/Les-branches-avec-Git-Rebaser
+- http://randyfay.com/content/rebase-workflow-git
+- http://gitready.com/intermediate/2009/01/31/intro-to-rebase.html
+- http://labs.excilys.com/2012/02/28/preparez-vous-a-reecrire-lhistoire-avec-git-rebase/
+- http://alx.github.io/gitbook/4_recombinaison_(rebase).html
+- http://git-scm.com/book/fr/Les-branches-avec-Git-Rebaser
 
 Synchronisation
 ===============
@@ -574,7 +575,7 @@ Ces informations spécifiques au dépôt sont stockés dans le fichier .git/conf
 les alias
 ---------
 
-Dans le fichier .gitconfig ::
+Quelques alias possibles à définir dans le fichier `.gitconfig` ::
 
   [alias]
       st = status
@@ -588,7 +589,7 @@ Dans le fichier .gitconfig ::
 
 Voir à cette url pour les alias lol et lola http://blog.kfish.org/2010/04/git-lola.html
 
-Les alias de log :
+Les alias de log ::
 
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
