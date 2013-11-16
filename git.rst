@@ -36,13 +36,17 @@ La commande est ::
 Gestion de l'index
 ------------------
 
-Ajouter tous les fichier ayant .rst en suffix ::
+Ajouter tous les fichiers ayant .rst en suffix ::
 
-  git add *.rst
+   git add *.rst
+
+Supprimer un fichier de l'index ::
+
+   git rm --cached FILE
 
 Ajouter tous les fichiers ::
 
-  git add -all
+   git add -all
 
 Pour ajouter un fichier dans l'index ::
 
@@ -52,9 +56,9 @@ Pour retirer un fichier de l'index ::
 
    git reset HEAD test.txt
 
-Est-ce des fichier dans la Working Directory qui ne sont pas dans l'index ::
+Est-ce des fichiers dans la Working Directory qui ne sont pas dans l'index ::
 
-  git diff
+   git diff
 
 Annuler toutes les modifications
 --------------------------------
@@ -331,6 +335,7 @@ Pousser une nouvelle branche vers le dépôt d'origine ::
 
   git push --set-upstream origin ma_nouvelle_branche
 
+
 Vérifier que la branche bien été poussée ::
 
   git remote show origin
@@ -338,6 +343,47 @@ Vérifier que la branche bien été poussée ::
 Suivre une branche d'un dépôt distant ::
 
   git checkout -b ma_branche origin/ma_branche
+
+Supprimer localement une branche ::
+
+  git branch -d la_branche_a_supprimer
+
+Supprimer la branche distante ::
+
+  git push origin --delete la_branche_distante
+
+résultat en sortie ::
+
+  To https://github.com/dojo-toulouse/elixir-koans
+  - [deleted]         anonymous_functions
+
+
+Rebase
+======
+
+Documentation intéressante ! http://mettadore.com/analysis/a-simple-git-rebase-workflow-explained/
+également intéressant http://randyfay.com/content/rebase-workflow-git
+http://gitready.com/intermediate/2009/01/31/intro-to-rebase.html
+
+http://labs.excilys.com/2012/02/28/preparez-vous-a-reecrire-lhistoire-avec-git-rebase/
+http://alx.github.io/gitbook/4_recombinaison_(rebase).html
+http://git-scm.com/book/fr/Les-branches-avec-Git-Rebaser
+
+Synchronisation
+===============
+
+https://help.github.com/articles/syncing-a-fork
+http://www.croes.org/gerald/blog/synchroniser-son-fork-github-avec-le-projet-original/551/
+
+Push vers le dépôt distant
+==========================
+
+Verifier si tous les commits sont poussés ::
+
+  git diff --stat origin/master..
+  git diff origin/master..HEAD
+  git push --dry-run
+
 
 Reflog
 ======
@@ -363,7 +409,6 @@ Faut-il tout de même avoir un fichier .gitattributes contenant ceci ::
 Voir à cette adresse _eol_git
 
 .. _eol_git: https://help.github.com/articles/dealing-with-line-endings
-
 
 
 Configuration git difftool
@@ -457,8 +502,9 @@ Utiliser la commande ::
 
   git remote rm origin
 
-git & github
-============
+
+Travailler avec github
+======================
 
 A regarder la commande hub écrite en ruby ::
 
@@ -472,8 +518,34 @@ Pour l'installer ::
    cd hub
    sudo rake install
 
+Consulter également cette url :   http://tck.io/posts/github_and_workflows.html
+
+
+
+Pull request et corrections
+---------------------------
+
+Pull request et branch, apporter des corrections à une PR.
+Voir les informations ci-dessous.
+http://stackoverflow.com/questions/7947322/preferred-github-workflow-for-updating-a-pull-request-after-code-review
+
+Autre commandes git
+===================
+
+Compresser le repo git
+----------------------
+
+Quand git gui indique que la base doit être compressée,
+il convient de lancer la commande ::
+
+  git gc
+
 A regarder
 ----------
+
+Resource à creuser : https://github.com/github/teach.github.com/blob/gh-pages/courses/_posts/2001-02-25-git-advanced-course.md
+
+Quick resource : http://jonas.nitro.dk/git/quick-reference.html
 
 A regarder ``Gerrit`` pour la revue de code.
 

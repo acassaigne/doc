@@ -104,8 +104,16 @@ Opérateur * ::
     assert_equal "John", first_name
     assert_equal  ["Smith", "III"], last_name
 
-Autres resources 
+Autres resources
 ================
 
 Tutorial
 https://www.ruby-lang.org/fr/documentation/quickstart/3/
+
+librairie
+=========
+
+A regarder pour analyser les options de la ligne de commande ::
+
+   http://trollop.rubyforge.org/
+
