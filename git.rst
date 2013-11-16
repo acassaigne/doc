@@ -399,8 +399,59 @@ http://git-scm.com/book/fr/Les-branches-avec-Git-Rebaser
 Synchronisation
 ===============
 
-https://help.github.com/articles/syncing-a-fork
-http://www.croes.org/gerald/blog/synchroniser-son-fork-github-avec-le-projet-original/551/
+Vous avez cloné un dépôt depuis github et vous souhaitez le synchroniser pour cela il vous procéder ainsi.
+
+Premièrement ajoute le dépôt à l'origine du fork, par exemple ::
+
+  git remote add upstream https://github.com/dojo-toulouse/elixir-koans
+
+On peut vérifier par un `git remote -v` que l'url d'accès a été ajoutée.
+
+Maintenant réalisons un fetch pour récupérer les modifications ::
+
+  git fetch upstream
+
+Le résultat attendu est quelque chose de ce type ::
+
+  remote: Counting objects: 19, done.
+  remote: Compressing objects: 100% (11/11), done.
+  remote: Total 13 (delta 6), reused 8 (delta 2)
+  Unpacking objects: 100% (13/13), done.
+  From https://github.com/dojo-toulouse/elixir-koans
+   * [new branch]      master     -> upstream/master
+
+Nous avons récupéré les données de la branch master en local,
+ces données étant stockés dans la branche locale upstream/master.
+
+Pour voir toutes les branches la commande suivante est pratique ::
+
+  git branch -va
+
+Il est maintenant temps de réaliser le merge avec notre branche master ::
+
+  git checkout master
+  git merge upstream/master
+
+Le résultat attendu est quelque chose de ce type ::
+
+  Updating 2a3fcc4..bf7f71f
+  Fast-forward
+   README.md                      |  2 +-
+   about_anonymous_function.exs   | 39   +++++++++++++++++++++++++++++++
+   about_lists.exs                |  4   ++++
+   about_numbers_and_booleans.exs | 54   +++++++++++++++++++
+   todo/about_regex.exs           |  4   ++++
+   5 files changed, 102 insertions(+),   1 deletion(-)
+   create mode 100644 about_anonymous_function.exs
+   create mode 100644 todo/about_regex.exs
+
+Il ne nous reste plus qu'a réaliser un `git push` ::
+
+   git push
+
+Voila c'est terminé.
+
+La serie d'opération est inspirée de ce lien https://help.github.com/articles/syncing-a-fork
 
 Push vers le dépôt distant
 ==========================
