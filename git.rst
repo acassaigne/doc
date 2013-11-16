@@ -56,9 +56,11 @@ Pour retirer un fichier de l'index ::
 
    git reset HEAD test.txt
 
-Est-ce des fichiers dans la Working Directory qui ne sont pas dans l'index ::
+Quels sont les fichiers modifiés au sein répertoire de travail qui
+ne sont pas dans l'index ::
 
    git diff
+   git diff --stat
 
 Annuler toutes les modifications
 --------------------------------
@@ -358,6 +360,27 @@ résultat en sortie ::
   - [deleted]         anonymous_functions
 
 
+merge
+=====
+
+Lorsqu'il y a un conflit utiliser ::
+
+  git ls-files -u
+
+permet d'identifier les fichiers en conflits (qui sont à merger) ou alors utiliser ::
+
+  git status
+
+Ensuite lancer l'outil de résolution de merge via ::
+
+  git mergetool
+
+Pour cela il faut avoir configuré git pour qu'il utilise votre outil préféré.
+Voir ma configuration, j'utilise meld mais il existe bon nombre de solutions à
+commencer par le vénérable vimdiff ou kdiff3 ainsi que la solution commerciale
+p4merge.
+
+
 Rebase
 ======
 
@@ -410,6 +433,32 @@ Voir à cette adresse _eol_git
 
 .. _eol_git: https://help.github.com/articles/dealing-with-line-endings
 
+
+Configurer meld
+---------------
+
+Pour configurer meld afin de l'utiliser lors de la résolution des merges, voici
+ma configuration ::
+
+   [merge]
+   tool = mymeld
+   [mergetool "mymeld"]
+   cmd = meld --diff $BASE $LOCAL --diff $BASE $REMOTE --diff $LOCAL $MERGED $REMOTE
+
+C'est inspiré de la configuration disponible à cette adresse http://lukas.zapletalovi.com/2012/09/three-way-git-merging-with-meld.html
+
+Je n'ai pas encore testé cette configuration ::
+
+  # Autre config à tester
+  #[merge]
+  #tool = mymeld
+  #conflictstyle = diff3
+  #[mergetool "mymeld"]
+  #cmd = meld --diff $BASE $LOCAL --diff $BASE $REMOTE --diff $LOCAL $BASE $REMOTE $MERGED
+
+  #Ou bien utiliser cette configuration
+  #[mergetool "mymeld"]
+  #cmd = meld $LOCAL $BASE $REMOTE -o $MERGED --diff $BASE $LOCAL --diff $BASE $REMOTE
 
 Configuration git difftool
 --------------------------
