@@ -2,13 +2,17 @@
 Git
 ***
 
-Info sur le dépôt
-=================
+Info sur le dépôt distant
+=========================
 
 Pour obtenir des infor sur le/les dépôts distants utiliser cette commande ::
 
   git remote -v
 
+Corriger l'url distante vous avez cloné un dépôt en http et vous voulez passer
+au protocole git (ou ssh) ::
+
+  git remote set-url origin git@github.com:username/repo.git
 
 Pour Windows
 ============
