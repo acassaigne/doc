@@ -1,0 +1,161 @@
+/attach77
+{
+    "mappings": {
+    "person" : {
+        "properties" : {
+            "my_attachment" : {
+                "type" : "attachment",
+                "fields" : {
+                    "my_attachment" : { "store" : "yes", "index" : "analyzed","index_analyzer": "french","search_analyzer": "french"  },
+                    "content_type" : {"store" : "yes"}
+                    }
+                }
+        }
+    }
+    }
+}
+
+
+{
+"fields" : [
+"content_type","my_attachment"
+],
+"query" : {
+"query_string" : {
+"query" : "imprimante"
+}
+},
+"highlight" : {
+"fields" : {
+"my_attachment" : {}
+}
+}
+}
+
+
+
+test sur l'index /attach
+
+curl -X PUT "localhost:9200/test_idx_1x"
+
+création du mapping
+curl -X PUT "localhost:9200/test_idx_1x/test_mapping_1x/_mapping" -d
+'{"test_mapping_1x" : { "properties" : { "toto" : {"type" : "attachment" } }  } }'
+
+
+
+{
+
+    "toto"
+}
+
+
+
+test sur l'index /attach
+
+{
+    "mappings": {
+    "person" : {
+        "properties" : {
+            "my_attachment" : { "type" : "attachment" }
+        }
+    }
+    }
+}
+
+
+Création d'un document
+PUT
+attach/person/1
+
+
+{
+    "my_attachment" : "dGVzdCBpbmRleGF0aW9uIDogcGhvdG9ncmFwaGllLCBpbXByaW1hbnRlCg=="
+}
+
+
+
+
+
+Interro
+{
+    "query" : {
+        "term" : {"my_attachment" : "photographie"}
+    }
+}
+
+Interro 2
+{
+   "query" : {
+      "text" : {
+         "my_attachment" : "imprimante"
+      }
+   }
+}
+
+
+
+/attach3
+
+{
+    "mappings": {
+    "person" : {
+        "properties" : {
+            "my_attachment" : {
+                "type" : "attachment",
+                "fields" : {
+                    "file" : { "store" : "yes", "index" : "analyzed"},
+                    "content_type" : {"store" : "yes"}
+                    }
+                }
+        }
+    }
+    }
+}
+
+PUT /attach3/person/1
+
+{
+    "my_attachment" : "dGVzdCBpbmRleGF0aW9uIDogcGhvdG9ncmFwaGllLCBpbXByaW1hbnRlCg=="
+}
+
+
+{
+    "my_attachment" : {
+        "content_type" : "text/plain",
+        "content" : "dGVzdCBpbmRleGF0aW9uIDogcGhvdG9ncmFwaGllLCBpbXByaW1hbnRlCg=="
+    }
+}
+
+
+{
+    "my_attachment" : "QXJ0aWNsZSBkZSByZWNoZXJjaGUgc3VyIGxlcyBpbXByaW1hbnRlcy4K=="
+}
+
+
+définition attachment
+PUT /attach4
+
+{
+    "mappings": {
+        "person" :
+        {
+            "properties" : {
+                "my_attachment" : { "type" : "attachment"   }
+            }
+        }
+    }
+}
+
+
+PUT /attach5
+{
+    "mappings": {
+        "person" :
+        {
+            "properties" : {
+                "toto" : { "type" : "attachment"   }
+            }
+        }
+    }
+}
