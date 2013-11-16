@@ -50,6 +50,74 @@ Accéder au premier caractère de la première ligne ::
 
     assert_equal "\n", long_string[0,1]
 
+Array
+=====
+
+Déclarer un array vide ::
+
+  empty_array = Array.new
+
+L'index commence à zéro ::
+
+    array[0] = 1
+    assert_equal [1], array
+
+    array[1] = 2
+    assert_equal [1, 2], array
+
+Ajouter un élément en bout de tableau ::
+
+    array << 333
+    assert_equal [1, 2, 333], array
+
+Tableau et index
+----------------
+
+  array.first
+  array.last
+
+Tranche de tableau
+------------------
+
+  array[0,1] prendre un élément depuis l'élément zéro
+  array[0,2] prendre deux éléments depuis l'élément zéro
+
+tant que l'on part d'un élément existant on obtient un tableau vide par exemple ::
+
+  array = [:peanut, :butter, :and, :jelly]
+  assert_equal [], array[4,100]
+
+mais si on part d'un élément inexistant nil on obtien nil ::
+
+  array = [:peanut, :butter, :and, :jelly]
+  assert_equal nil, array[5,0]
+
+Range n'est pas un tableau
+--------------------------
+
+exemple d'utilisation du Range ::
+
+    assert_equal Range, (1..5).class
+    assert_not_equal [1,2,3,4,5], (1..5)
+    assert_equal [1,2,3,4,5], (1..5).to_a
+    assert_equal [1,2,3,4], (1...5).to_a
+
+mais permet des manipulation d'index de tableau ::
+
+    array[1..3]
+    array[1...3]
+
+push, pop, shift, unshift et tableau
+------------------------------------
+
+Exemple ::
+
+    array = [1,2]
+    array.push(:last)
+
+    assert_equal [1,2,:last], array
+    popped_value = array.pop
+    assert_equal :last, popped_value
 
 
 Tableau associatif
