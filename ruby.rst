@@ -9,6 +9,52 @@ tester le type d'objet ::
 
   assert_equal true, "Ma String".is_a?(String)
 
+Chaque objet a un object_id ::
+
+    MonObjet.object_id
+
+Instancier un objet ::
+
+   Object.new()
+
+Cloner un objet ::
+
+    obj = Object.new
+    copy = obj.clone
+
+mais il n'y a pas égalité ::
+
+    assert_equal true, obj           != copy
+    assert_equal true, obj.object_id != copy.object_id
+
+égalité
+-------
+
+c'est ==
+
+Assert
+------
+
+L'assert en ruby ::
+
+  assert expected_value == actual_value
+
+a better way ::
+
+  assert_equal expected_value, actual_value
+
+
+assert et match ::
+
+  assert_match(/undefined method `some_method_nil_doesnt_know_about' for nil:NilClass/, ex.message)
+
+Tester si un objet est nil ?
+
+c'est via cette syntaxe ::
+
+   MonObjet.nil?
+
+
 Simple caractère
 ================
 
@@ -177,6 +223,7 @@ Autres resources
 
 Tutorial
 https://www.ruby-lang.org/fr/documentation/quickstart/3/
+http://ruby.about.com/od/beginningruby/ss/The-Zen-Of-Learning-Ruby.htm
 
 librairie
 =========
