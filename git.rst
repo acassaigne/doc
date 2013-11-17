@@ -611,6 +611,38 @@ Utiliser la commande ::
 Travailler avec github
 ======================
 
+Vous avez forké un repo d'un projet ::
+
+  git clone https://gitup/username/repo-forke
+
+Vous travaillez dans ce repo ::
+
+  git branch new_feature
+  git checkout new_feature
+  .... working ....
+
+Il faut configurer vers quelle branche vous réalisé le push ::
+
+  git push --set-upstream origin new_feature
+
+Pour les autres push çà sera une simple commande ::
+
+  git push
+
+Ensuite création de la pull request via la commande hub ::
+
+  hub pull-request -m "Message de la pull request" -b user_origine_repo:master
+
+ou ::
+
+  hub pull-request -m "Message de la pull request" -b user_origine_repo:master -h my_username:new_feature
+
+Résultat en sortie ::
+
+  https://github.com/dojo-toulouse/elixir-koans/pull/6
+
+Création de la pull request 6 pour le dépôt appartenant à user_origine_repo !
+
 A regarder la commande hub écrite en ruby ::
 
   hub
@@ -624,7 +656,7 @@ Pour l'installer ::
    sudo rake install
 
 Consulter également cette url :   http://tck.io/posts/github_and_workflows.html
-
+http://stackoverflow.com/questions/15302570/automatically-open-a-pull-request-on-github-by-command-line
 
 
 Pull request et corrections
