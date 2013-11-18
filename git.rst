@@ -722,7 +722,14 @@ il convient de lancer la commande ::
 A regarder
 ----------
 
+A regarder : http://fr.slideshare.net/saharabeara/advanced-git-tutorial
+Quelques éléments à reprendre.
+
+A regarder http://osteele.com/archives/2008/05/my-git-workflow
+
 Resource à creuser : https://github.com/github/teach.github.com/blob/gh-pages/courses/_posts/2001-02-25-git-advanced-course.md
+
+Intro pas mal réalisée : https://www.kernel.org/pub/software/scm/git/docs/everyday.html
 
 Quick resource : http://jonas.nitro.dk/git/quick-reference.html
 
