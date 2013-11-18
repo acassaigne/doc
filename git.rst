@@ -130,6 +130,40 @@ ou si on veut les différences au format patch ::
 
 l'option follow permet de suivre les renames.
 
+Rechercher
+----------
+
+Chercher dans le log avec un regexp ::
+
+  git log --grep "<PATTERN>"
+
+l'option -E permet d'activer l'extend grep.
+
+Chercher dans le code au niveau de toutes les révisions la STRING avec l'option -G ou -S::
+
+  git log --stat -G'STRING'
+  git log -p -S'STRING'
+
+Chercher une string dans le code effacé uniquement ::
+
+  git log -p -S'STRING' --diff-filter=D
+
+Chercher dans les fichiers du répertoire de travail mais uniquement pour les fichiers sous révision ::
+
+  git grep -e 'STRING'
+
+Chercher uniquement dans les fichier ayant l'extension .c ::
+
+  git grep -e 'STRING' -- '*.c'
+
+Pour chercher une string uniquement dans les fichiers contenus dans l'index ::
+
+  git grep --cached -e 'STRING' -- '*.c'
+
+Pour chercher une string pour un commit donné ::
+
+  git grep -e ';;' SHA1 -- '*.c'
+
 Voir les différences DIFF
 -------------------------
 Vous pouvez également utiliser l'option --stat pour obtenir
