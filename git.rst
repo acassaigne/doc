@@ -516,6 +516,14 @@ Je n'ai pas encore testé cette configuration ::
   #[mergetool "mymeld"]
   #cmd = meld $LOCAL $BASE $REMOTE -o $MERGED --diff $BASE $LOCAL --diff $BASE $REMOTE
 
+Les outils à étudier pour réaliser des merges sont kdiff3 qui semble avoir des algorithme plus poussés.
+Regarde également p4merge.
+Voir à cet url http://stackoverflow.com/questions/572237/whats-the-best-three-way-merge-tool
+On trouve au sein de cet url ces articles
+article sur p4merge http://www.geekgumbo.com/2010/05/11/perforces-p4merge-file-comparison-editor-a-review/
+
+
+
 Configuration git difftool
 --------------------------
 
