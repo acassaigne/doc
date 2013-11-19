@@ -24,7 +24,7 @@ Configurer
 
 Vérifier la valeur de la variable $HOME au sein d'un gitbash.
 
-.. code-block:: shell
+.. code-block:: bash
 
     echo $HOME
 
@@ -55,6 +55,13 @@ Ajouter tous les fichiers ::
 Pour ajouter un fichier dans l'index ::
 
    git add filename.txt
+
+Ajouter une partie de fichier ::
+
+  git add -i
+  ensuite patch
+  selectionner le fichier
+  et y pour ajouter un hunk
 
 Pour retirer un fichier de l'index ::
 
@@ -221,6 +228,7 @@ On peut récupérer un fichier de la zone de staging via ces commandes ::
   git ls-files -s
 
 résultat c'est un ls de la zone de staging ::
+
   $ git ls-files -s
   100644 7811ebf7ac44c1c2972ea1e11662d8cf6be2757e 0       test.txt
 
@@ -519,10 +527,9 @@ Faut-il tout de même avoir un fichier .gitattributes contenant ceci ::
 
     * text=lf
 
-Voir à cette adresse _eol_git
-
 .. _eol_git: https://help.github.com/articles/dealing-with-line-endings
 
+Voir à cette adresse _eol_git
 
 Configurer meld
 ---------------
