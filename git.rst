@@ -193,7 +193,6 @@ La commande ::
   git diff HEAD
 
 Donne la différence entre la HEAD et WORKING DIRECTORY.
-(possiblement incluant les modif de l'index, à valider.)
 
 voir url http://www.gitguys.com/topics/git-diff/
 
