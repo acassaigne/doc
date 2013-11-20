@@ -2,6 +2,8 @@
 Git
 ***
 
+
+
 Info sur le dépôt distant
 =========================
 
@@ -30,7 +32,7 @@ La commande est ::
 
 
 Gestion de l'index
-------------------
+==================
 
 Ajouter tous les fichiers ayant .rst en suffix ::
 
@@ -65,6 +67,9 @@ ne sont pas dans l'index ::
    git diff
    git diff --stat
 
+Annulation des modifications
+============================
+
 Annuler toutes les modifications
 --------------------------------
 
@@ -95,6 +100,9 @@ Pour revenir sur une version ::
 
   git checkout SHA1 filename_to_restore
   git checkout -- mon_fichier.txt
+
+Historique & Recherches
+=======================
 
 Suivre les modifications d'un fichier
 -------------------------------------
@@ -162,6 +170,9 @@ Pour chercher une string uniquement dans les fichiers contenus dans l'index ::
 Pour chercher une string pour un commit donné ::
 
   git grep -e ';;' SHA1 -- '*.c'
+
+Traiter les diffréneces
+=======================
 
 Voir les différences DIFF
 -------------------------
@@ -250,8 +261,8 @@ la liste des tags avec le SHA1 ::
   git show --summary --oneline --decorate
 
 
-utilisation de git difftool
----------------------------
+Utilisation de difftool
+=======================
 
 Une difftool configuré voici ce qu'il est possible de réaliser.
 
@@ -306,13 +317,6 @@ On devrait pouvoir le retrouver à condition que le garbage collector ne soit pa
 
 Voir ce lien http://gitready.com/advanced/2009/01/17/restoring-lost-commits.html
 
-Récupérer un fichier d'une branche sur une autre
-------------------------------------------------
-
-Pour cela checkout ::
-
-  git checkout ma_branche
-  git checkout master -- filename.txt
 
 Autre commandes utiles
 ======================
@@ -396,9 +400,17 @@ résultat en sortie ::
   To https://github.com/dojo-toulouse/elixir-koans
   - [deleted]         anonymous_functions
 
+Récupérer un fichier d'une branche sur une autre
+------------------------------------------------
 
-merge
-=====
+Pour cela checkout ::
+
+  git checkout ma_branche
+  git checkout master -- filename.txt
+
+
+Réaliser les opérations de merge
+================================
 
 Lorsqu'il y a un conflit utiliser ::
 
@@ -430,8 +442,11 @@ Documentation intéressante : http://mettadore.com/analysis/a-simple-git-rebase-
 - http://alx.github.io/gitbook/4_recombinaison_(rebase).html
 - http://git-scm.com/book/fr/Les-branches-avec-Git-Rebaser
 
-Synchronisation
-===============
+Pull, Push et Synchronisation
+=============================
+
+Synchronisation avec un dépôt forké
+-----------------------------------
 
 Vous avez cloné un dépôt depuis github et vous souhaitez le synchroniser pour cela il vous procéder ainsi.
 
@@ -487,15 +502,14 @@ Voila c'est terminé.
 
 La serie d'opération est inspirée de ce lien https://help.github.com/articles/syncing-a-fork
 
-Push vers le dépôt distant
-==========================
+Identifier les commits non poussés
+==================================
 
 Verifier si tous les commits sont poussés ::
 
   git diff --stat origin/master..
   git diff origin/master..HEAD
   git push --dry-run
-
 
 Reflog
 ======
