@@ -14,21 +14,13 @@ au protocole git (ou ssh) ::
 
   git remote set-url origin git@github.com:username/repo.git
 
-Pour Windows
-============
+Supprimer un repo distant (remote)
+----------------------------------
 
-Installer msysgit.
+Utiliser la commande ::
 
-Configurer
-----------
+  git remote rm origin
 
-Vérifier la valeur de la variable $HOME au sein d'un gitbash.
-
-.. code-block:: bash
-
-    echo $HOME
-
-c'est à cet emplacement que vous trouverez le fichier ``.gitconfig``
 
 Identifier les fichiers d'un commit
 -----------------------------------
@@ -562,35 +554,6 @@ Voir à cet url http://stackoverflow.com/questions/572237/whats-the-best-three-w
 On trouve au sein de cet url ces articles
 article sur p4merge http://www.geekgumbo.com/2010/05/11/perforces-p4merge-file-comparison-editor-a-review/
 
-
-
-Configuration git difftool
---------------------------
-
-Sous Windows
-++++++++++++
-
-Configurer git afin d'utiliser winmerge.
-Pour cela il faut créer un shell à placer dans un endroit où le PATH windows pointe ::
-
-    #!/bin/sh
-    echo Launching WinMergeU.exe: $1 $2
-    echo "run win merge $1 $2" > t.log
-    "C:/Program Files (x86)/WinMerge/WinMergeU.exe" -e -ub "$1" "$2"
-
-Ensuite configurer le .gitconfig comme ceci ::
-
-   [diff]
-       tool = winmerge
-
-   [difftool "winmerge"]
-       cmd = "winmerge.sh \"$LOCAL\" \"$REMOTE\""
-
-   [difftool]
-     prompt = false
-
-Et c'est tout !
-
 Travailler avec deux ou plus de configuration
 ---------------------------------------------
 
@@ -644,17 +607,49 @@ Les alias de log ::
     lp = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
-Supprimer un repo distant (remote)
-----------------------------------
 
-Pour voir les repos distants configurés utiliser la commande ::
 
-   git remote -v
 
-Utiliser la commande ::
 
-  git remote rm origin
+Git sous windows
+================
 
+Installer msysgit.
+
+Configurer
+----------
+
+Vérifier la valeur de la variable $HOME au sein d'un gitbash.
+
+.. code-block:: bash
+
+    echo $HOME
+
+c'est à cet emplacement que vous trouverez le fichier ``.gitconfig``
+
+Configuration git difftool sous windows
+---------------------------------------
+
+Configurer git afin d'utiliser winmerge.
+Pour cela il faut créer un shell à placer dans un endroit où le PATH windows pointe ::
+
+    #!/bin/sh
+    echo Launching WinMergeU.exe: $1 $2
+    echo "run win merge $1 $2" > t.log
+    "C:/Program Files (x86)/WinMerge/WinMergeU.exe" -e -ub "$1" "$2"
+
+Ensuite configurer le .gitconfig comme ceci ::
+
+   [diff]
+       tool = winmerge
+
+   [difftool "winmerge"]
+       cmd = "winmerge.sh \"$LOCAL\" \"$REMOTE\""
+
+   [difftool]
+     prompt = false
+
+Et c'est tout !
 
 Travailler avec github
 ======================
