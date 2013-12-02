@@ -2,12 +2,44 @@
 Git
 ***
 
+Création de dépôts
+==================
 
+Dépôt local
+-----------
+
+Pour créer un dépôt local ::
+
+  git init .
+
+Cette va créer un dossier .git dans le répertoire courant.
+Ensuite à vous d'ajouter les fichiers que vous souhaiter versionner.
+
+
+Dépôt distant
+-------------
+
+Création d'un répertoire ayant pour extension .git ::
+
+  mkdir foo-project.git
+
+Se positionner dans ce répertoire ::
+
+  cd foo-project.git
+
+Initialiser ce répertoire ::
+
+  git --bare init
+
+Si on veut s'amuser sur son propre PC tout en simulant un dépôt distant, on peut faire usage la synatxe file:/// ::
+
+  git clone file:///full/pathname/foo-project.git
+  cd foo-project
 
 Info sur le dépôt distant
 =========================
 
-Pour obtenir des infor sur le/les dépôts distants utiliser cette commande ::
+Pour obtenir des informations sur le/les dépôts distants utiliser cette commande ::
 
   git remote -v
 
