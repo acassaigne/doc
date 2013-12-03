@@ -1,19 +1,18 @@
-*******************************************************
 Software Craftsmanship Professionalism Pragmatism Pride
-*******************************************************
+#######################################################
 
 :date: 2013-12-01
 :tags: livre, agile, software craftsmanship
-:category: Livre
+:category: Livres
 :author: Anthony Cassaigne
 
 Sandro Mancuso nous livre là un fort bel ouvrage ! Il nous décrit simplement et
-efficacement la conception qu'il a du métier de développeur.
-Vision à laquelle je m'associe pleinement. Si vous cherchez un livre technique
-relatif aux : TDD, refactoring... passez votre chemin (mais pas trop vite tout
-de même je vous encourage à lire ne serait-ce que les deux premiers chapitres).
-Ce livre s'adresse à tous et pas seulement aux développeurs. Managers, décideurs,
-chefs de projets, chefs d'équipe, coach... lisez attentivement ce livre !
+efficacement la conception qu'il a du métier de développeur. Vision à laquelle
+je m'associe pleinement. Si vous cherchez un livre technique relatif aux : TDD,
+refactoring... passez votre chemin (mais pas trop vite tout de même je vous
+encourage à lire ne serait-ce que les deux premiers chapitres). Ce livre
+s'adresse à tous et pas seulement aux développeurs. Managers, décideurs, chefs
+de projets, chefs d'équipe, coach... lisez attentivement ce livre !
 
 Sandro commence par nous compter les débuts de sa carrière, notamment en
 relatant le premier moment fort de sa vie de développeur où le responsable de
