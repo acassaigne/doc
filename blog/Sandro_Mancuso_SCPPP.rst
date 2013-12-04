@@ -4,8 +4,12 @@ Software Craftsmanship Professionalism Pragmatism Pride
 
 :date: 2013-12-01
 :tags: livre, agile, software craftsmanship
-:category: Livre
+:category: Livres
 :author: Anthony Cassaigne
+
+.. image:: images/sandro_book.png
+    :height: 180px
+    :alt: Couverture du livre Software Craftsmanship Professionalism Pragmatism Pride
 
 Sandro Mancuso nous livre là un fort bel ouvrage ! Il nous décrit simplement et
 efficacement la conception qu'il a du métier de développeur.
