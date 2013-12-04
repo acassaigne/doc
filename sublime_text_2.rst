@@ -27,6 +27,24 @@ firchier.
 On peut également trouver l'information sur cette page :
 - https://gist.github.com/iambibhas/4705378
 
+snippets que j'utilise
+----------------------
+
+Pour le markdown ::
+
+    <snippet>
+      <content><![CDATA[
+    ```shell
+    ${1:code}
+    ```
+    ]]></content>
+      <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+      <tabTrigger>cc</tabTrigger>
+      <!-- Optional: Set a scope to limit where the snippet will trigger -->
+      <scope>text.html.markdown</scope>
+    </snippet>
+
+
 
 Ma configuration
 ================
