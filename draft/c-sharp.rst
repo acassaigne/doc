@@ -49,3 +49,14 @@ ComboBox
             //ComboBoxNumClient.Items.Add("CC2251 - Client 6");
             //ComboBoxNumClient.Items.Add("SAMSAR - Client 7");
             //ComboBoxNumClient.Items.Add("CD2076 - Client 8");
+
+Alerte
+
+     System.Windows.Forms.MessageBox.Show("Vous devez selectionner un fichier !", "Alert selectionner fichier !",
+                                                       MessageBoxButtons.OK,
+                                                       MessageBoxIcon.Warning);
+
+Send email via outlook
+======================
+
+Resource à étudier : http://social.msdn.microsoft.com/Forums/vstudio/en-US/3602242c-fc81-4ffd-917e-cf78cf34288e/link-email-address-and-send-email-via-outlook-in-wpf?forum=wpf
