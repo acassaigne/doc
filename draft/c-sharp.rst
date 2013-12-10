@@ -98,6 +98,18 @@ Plus exactement à utiliser au niveau du layout ::
 Au niveau du fichier xaml
 
 
+.NET & WPF
+==========
+
+Generer un identifiant unique
+-----------------------------
+
+Il convient d'utiliser la méthode ::
+
+   System.Guid.NewGuid()
+
+Voir ici http://stackoverflow.com/questions/8477664/how-can-i-generate-uuid-in-c-sharp
+
 Send email via outlook
 ======================
 
