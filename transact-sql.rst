@@ -105,6 +105,47 @@ Table variable versus temporary table
 
 - http://odetocode.com/articles/365.aspx
 
+Procedures
+==========
+
+Définir une procédure avec des paramètres externes (output) ::
+
+    IF OBJECT_ID('dbo.get_info_rejets_nb_colis_doublon') IS NOT NULL
+      DROP PROCEDURE dbo.get_info_rejets_nb_colis_doublon;
+    GO
+
+    CREATE PROCEDURE [dbo].[get_info_rejets_nb_colis_doublon]
+     @pl_id_job_deal BIGINT,
+     @pl_count_colis_prives INT OUTPUT,
+     @pl_count_rejets INT OUTPUT,
+     @pl_count_doublon INT OUTPUT
+    AS
+    BEGIN
+    SELECT
+       @pl_count_colis_prives = colis_prives.count_prives,
+       @pl_count_rejets = r.count_rejets,
+       @pl_count_doublon = doublon.count_doublons
+    FROM (SELECT value as count_rejets FROM result_load_commands
+          WHERE id_job_deal = @pl_id_job_deal
+             AND  name = 'QTE_COLIS_REJETS' ) r,
+          (SELECT value as count_prives FROM result_load_commands
+           WHERE id_job_deal = @pl_id_job_deal
+             AND  name = 'QTE_COLIS_PRIVES' ) colis_prives,
+          (SELECT value as count_doublons FROM result_load_commands
+           WHERE id_job_deal = @pl_id_job_deal
+             AND name = 'DOUBLON' ) doublon;
+    END;
+    GO
+
+Appeler cette procédure ::
+
+  DECLARE @r INT
+  DECLARE @c INT
+  DECLARE @D int
+
+  exec get_info_rejets_nb_colis_doublon  @pl_id_job_deal =39 , @pl_count_colis_prives=@r OUTPUT, @pl_count_rejets=@c OUTPUT, @pl_count_doublon=@d OUTPUT
+  SELECT @r,@c,@d
+
 Table temporaire
 ================
 
