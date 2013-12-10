@@ -118,6 +118,35 @@ Il suffit d'utiliser la requête suivante ::
 
 	select TABLE_NAME from tempdb.information_schema.tables
 
+Contraintes
+===========
+
+Clé primaire composite ::
+
+  CREATE TABLE param_job_deal
+    ( id_param_job_deal BIGINT IDENTITY(1,1) PRIMARY KEY,
+      id_job_deal BIGINT NOT NULL,
+      step_name VARCHAR(50),
+      param_name VARCHAR(50),
+      str_value VARCHAR(50),
+      bigint_value bigint,
+      PRIMARY KEY (id_param_job_deal, id_job_deal)
+      );
+
+Clé étrangère ::
+
+  CREATE TABLE param_job_deal
+    ( id_param_job_deal BIGINT IDENTITY(1,1) PRIMARY KEY,
+      id_job_deal BIGINT NOT NULL,
+      step_name VARCHAR(50),
+      param_name VARCHAR(50),
+      str_value VARCHAR(50),
+      bigint_value bigint,
+      FOREIGN KEY (id_job_deal) REFERENCES job_deal(id_job_deal)
+      );
+
+
+
 Gestion des transactions et des erreurs
 =======================================
 
