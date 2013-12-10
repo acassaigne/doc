@@ -97,6 +97,28 @@ Plus exactement à utiliser au niveau du layout ::
 
 Au niveau du fichier xaml
 
+méthode et parametre outlook
+============================
+
+Exemple de méthode ::
+
+ public void GetResultAfterSimulation(long IdJobDeal, out int CountColisPrives, out int CountRejets, out int CountDoublon)
+        {
+
+            SqlCommand scCommand = new SqlCommand("dbo.get_info_rejets_nb_colis_doublon", this.DbConnection);
+            scCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            scCommand.Parameters.AddWithValue("@pl_id_job_deal", IdJobDeal);
+            scCommand.Parameters.AddWithValue("@pb_Traitement", realTraitement);
+            scCommand.Parameters.AddWithValue("@pl_NumClient", NumClient);
+            scCommand.Parameters.AddWithValue("@pl_Dossier", NameClient);
+            scCommand.Parameters.AddWithValue("@pi_ProdTransp", CodeTransporteur);
+            scCommand.Parameters.AddWithValue("@ps_NumDossier", LibelleOpe);
+            scCommand.Parameters.AddWithValue("@pi_IdExpe", IdExpediteur);
+            scCommand.Parameters.AddWithValue("@ps_NomFic1", Filename);
+            scCommand.ExecuteNonQuery();
+        }
+
+
 
 .NET & WPF
 ==========
