@@ -14,7 +14,11 @@ IDENTITY
 
 http://stackoverflow.com/questions/42648/best-way-to-get-identity-of-inserted-row
 
-Plus sur comme méthode ::
+La bonne méthode est d'utiliser ::
+
+  SCOPE_IDENTITY()
+
+Méthode avec OUTPUT ::
 
     create table aca_test (id int identity , lib varchar(50));
     declare @IdentityOutput table ( ID int )
