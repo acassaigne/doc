@@ -139,6 +139,21 @@ Exemple de méthode ::
         }
 
 
+Documenter une méthode
+----------------------
+
+Exemple ::
+
+        /// <summary>
+        /// Description de la méthode
+        /// </summary>
+        /// <param name="Param1">Description du parametre 1</param>
+        /// <param name="Param2">Description du parametre 2</param>
+        /// <returns>Explication valeur retournée</returns>
+        public Boolean MaMethode(Param1, Param2)
+        {
+        ...
+        }
 
 .NET & WPF
 ==========
@@ -146,7 +161,7 @@ Exemple de méthode ::
 Ajouter un clé de configuration à l'application
 -----------------------------------------------
 
-
+// TODO
 
 Generer un identifiant unique
 -----------------------------
