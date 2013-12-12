@@ -2,6 +2,17 @@
 c sharp
 *******
 
+Visual Studio Shortcut
+======================
+
+http://www.shortcutworld.com/en/win/Visual-Studio_2010.html#link_2
+http://msdn.microsoft.com/en-us/library/bb531266(v=vs.90).aspx
+
+mode colonne : shift + alt + fleche up/down
+ajouter bookmark : ctlr+k ctrl+k
+supprimer bookmark : ctrl+k ctrl+k
+
+
 WPF
 ===
 
@@ -75,6 +86,15 @@ Alerte
                                                        MessageBoxIcon.Warning);
 
 
+
+Curseur
+=======
+
+Changer le curseur pour patienter lors d'une opération longue ::
+
+   Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
+   Mouse.OverrideCursor = System.Windows.Input.Cursors.Arrow;
+
 Layout
 ======
 
@@ -122,6 +142,11 @@ Exemple de méthode ::
 
 .NET & WPF
 ==========
+
+Ajouter un clé de configuration à l'application
+-----------------------------------------------
+
+
 
 Generer un identifiant unique
 -----------------------------
