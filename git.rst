@@ -183,7 +183,7 @@ Chercher dans le code au niveau de toutes les révisions la STRING avec l'option
   git log --stat -G'STRING'
   git log -p -S'STRING'
 
-Chercher une string dans le code effacé uniquement ::
+Chercher une chaine de caractère qui a été effacé au sein du code ::
 
   git log -p -S'STRING' --diff-filter=D
 
@@ -191,7 +191,7 @@ Chercher dans les fichiers du répertoire de travail mais uniquement pour les fi
 
   git grep -e 'STRING'
 
-Chercher uniquement dans les fichier ayant l'extension .c ::
+Chercher uniquement dans les fichiers ayant l'extension .c ::
 
   git grep -e 'STRING' -- '*.c'
 
@@ -704,6 +704,16 @@ Vous avez forké un repo d'un projet ::
 
   git clone https://gitup/username/repo-forke
 
+La version ssh ::
+
+  git clone ssh://gituser@hostname/home/gituser/anthony_atelier
+
+Autre version sans le prefix ssh mais on passe bien en ssh et en indiquant
+un chemin relatif ::
+
+  git clone gituser@little:anthony_atelier
+
+
 Vous travaillez dans ce repo ::
 
   git branch new_feature
@@ -792,3 +802,8 @@ http://gitready.com/beginner/2009/01/18/the-staging-area.html
 
 plein d'informations ici : http://sixrevisions.com/web-development/git-tips/
 ici aussi http://gitready.com/
+
+
+todo
+git push
+configurer git pour cela upstream
