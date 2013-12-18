@@ -9,6 +9,7 @@ Faisant un usage régulier de pyhton, restructured Text :
 - SublimeRope python
 - Sublime Text Restructured Text Code Completion (rst)
 - Theme utilisé Thomorow Color Schema (Tomorrow Night Eighties)
+- EncodingHelper https://github.com/SublimeText/EncodingHelper#readme
 
 A regarder !! http://sametmax.com/liste-des-plugins-sublime-text-que-jutilise/
 http://outofmemoryblog.blogspot.fr/2012/08/python-development-with-sublime-text-2.html
