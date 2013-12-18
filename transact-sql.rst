@@ -14,7 +14,11 @@ IDENTITY
 
 http://stackoverflow.com/questions/42648/best-way-to-get-identity-of-inserted-row
 
-Plus sur comme méthode ::
+La bonne méthode est d'utiliser ::
+
+  SCOPE_IDENTITY()
+
+Méthode avec OUTPUT ::
 
     create table aca_test (id int identity , lib varchar(50));
     declare @IdentityOutput table ( ID int )
@@ -101,6 +105,47 @@ Table variable versus temporary table
 
 - http://odetocode.com/articles/365.aspx
 
+Procedures
+==========
+
+Définir une procédure avec des paramètres externes (output) ::
+
+    IF OBJECT_ID('dbo.get_info_rejets_nb_colis_doublon') IS NOT NULL
+      DROP PROCEDURE dbo.get_info_rejets_nb_colis_doublon;
+    GO
+
+    CREATE PROCEDURE [dbo].[get_info_rejets_nb_colis_doublon]
+     @pl_id_job_deal BIGINT,
+     @pl_count_colis_prives INT OUTPUT,
+     @pl_count_rejets INT OUTPUT,
+     @pl_count_doublon INT OUTPUT
+    AS
+    BEGIN
+    SELECT
+       @pl_count_colis_prives = colis_prives.count_prives,
+       @pl_count_rejets = r.count_rejets,
+       @pl_count_doublon = doublon.count_doublons
+    FROM (SELECT value as count_rejets FROM result_load_commands
+          WHERE id_job_deal = @pl_id_job_deal
+             AND  name = 'QTE_COLIS_REJETS' ) r,
+          (SELECT value as count_prives FROM result_load_commands
+           WHERE id_job_deal = @pl_id_job_deal
+             AND  name = 'QTE_COLIS_PRIVES' ) colis_prives,
+          (SELECT value as count_doublons FROM result_load_commands
+           WHERE id_job_deal = @pl_id_job_deal
+             AND name = 'DOUBLON' ) doublon;
+    END;
+    GO
+
+Appeler cette procédure ::
+
+  DECLARE @r INT
+  DECLARE @c INT
+  DECLARE @D int
+
+  exec get_info_rejets_nb_colis_doublon  @pl_id_job_deal =39 , @pl_count_colis_prives=@r OUTPUT, @pl_count_rejets=@c OUTPUT, @pl_count_doublon=@d OUTPUT
+  SELECT @r,@c,@d
+
 Table temporaire
 ================
 
@@ -113,6 +158,35 @@ Comment identifier les tables temporaires existantes ?
 Il suffit d'utiliser la requête suivante ::
 
 	select TABLE_NAME from tempdb.information_schema.tables
+
+Contraintes
+===========
+
+Clé primaire composite ::
+
+  CREATE TABLE param_job_deal
+    ( id_param_job_deal BIGINT IDENTITY(1,1) PRIMARY KEY,
+      id_job_deal BIGINT NOT NULL,
+      step_name VARCHAR(50),
+      param_name VARCHAR(50),
+      str_value VARCHAR(50),
+      bigint_value bigint,
+      PRIMARY KEY (id_param_job_deal, id_job_deal)
+      );
+
+Clé étrangère ::
+
+  CREATE TABLE param_job_deal
+    ( id_param_job_deal BIGINT IDENTITY(1,1) PRIMARY KEY,
+      id_job_deal BIGINT NOT NULL,
+      step_name VARCHAR(50),
+      param_name VARCHAR(50),
+      str_value VARCHAR(50),
+      bigint_value bigint,
+      FOREIGN KEY (id_job_deal) REFERENCES job_deal(id_job_deal)
+      );
+
+
 
 Gestion des transactions et des erreurs
 =======================================

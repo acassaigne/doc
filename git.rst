@@ -807,3 +807,19 @@ ici aussi http://gitready.com/
 todo
 git push
 configurer git pour cela upstream
+
+Les outils à regarder, ici un lien intéressant sur stackoverflow : http://stackoverflow.com/questions/3847740/list-of-useful-git-tools
+
+Git number, numérote les fichier : https://github.com/holygeek/git-number
+
+article sur le modèle de branche : http://nvie.com/posts/a-successful-git-branching-model/
+Revue de code avec gerrit https://code.google.com/p/gerrit/
+
+Explication sur le git diff
+http://stackoverflow.com/questions/10950412/what-does-1-1-mean-in-gits-diff-output
+http://stackoverflow.com/questions/2529441/how-to-work-with-diff-representation-in-git/2529633#2529633
+http://en.wikipedia.org/wiki/Diff#Unified_format
+
+@@ from-file-line-numbers to-file-line-numbers @@
+ line-from-either-file
+ line-from-either-file...
