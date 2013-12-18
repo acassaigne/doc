@@ -26,6 +26,11 @@ Problème pour tester le code retour ::
 
 
 
+CSV
+===
+
+http://www.codeproject.com/Questions/450672/Import-CSV-File-into-DataGrid-using-DataTable-WPF
+
 Quelques resources
 ==================
 
@@ -194,3 +199,8 @@ Resource à étudier : http://social.msdn.microsoft.com/Forums/vstudio/en-US/360
 
 A lire sur le MVVM
 http://msdn.microsoft.com/en-us/magazine/dd419663.aspx
+
+Vérifier encodage d'un fichier
+==============================
+
+http://encodingchecker.codeplex.com/
