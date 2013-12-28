@@ -543,6 +543,15 @@ Verifier si tous les commits sont poussés ::
   git diff origin/master..HEAD
   git push --dry-run
 
+commit vide
+-----------
+
+l'option à utiliser est --allow-empty
+Pour commencer avec un dépôt vide, ayant un premier commit vide ::
+
+   git commit --allow-empty -m "Message"
+
+
 Reflog
 ======
 
