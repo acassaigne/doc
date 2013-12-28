@@ -163,10 +163,51 @@ Exemple ::
 .NET & WPF
 ==========
 
+App.config et dictionnaire
+--------------------------
+
+Par exemple nous avons cette section
+-------------------------------------
+exemple de configuration ::
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <configuration>
+      <configSections>
+        <section
+          name="CodeProduitTransporteur"
+          type="System.Configuration.DictionarySectionHandler" />
+        <section
+         name="CodeAdresseRetour"
+         type="System.Configuration.DictionarySectionHandler" />
+      </configSections>
+      ...
+    <CodeProduitTransporteur>
+      <add key="A" value="35"/>
+      <add key="N" value="38"/>
+    </CodeProduitTransporteur>
+
+Le code charger le dictionnaire ::
+
+   tmpHashtable = (Hashtable)ConfigurationManager.GetSection("CodeProduitTransporteur");
+   DictCodeProduitTransporteur = tmpHashtable.Cast<DictionaryEntry>().ToDictionary(d => (string)d.Key, d => (string)d.Value);
+
 Ajouter un clé de configuration à l'application
 -----------------------------------------------
 
-// TODO
+exemple de fichier app.config ::
+
+  <appSettings>
+    <add key="DirectoryInputFiles" value="R:\Tmp\TestChargement\anthony" />
+    <add key="DirectoryOutputFile" value="R:\Tmp\TestChargement\anthony\output" />
+    <add key="NumberOfDotInReportFile" value="35" />
+    <add key="CsvSeparator" value=";"></add>
+    <add key="CsvIndexColumnStatistics" value="10"></add>
+    <add key="ClientSettingsProvider.ServiceUri" value="" />
+  </appSettings>
+
+Le code pour lire le parametre dans le fichier de config ::
+
+   this.InputDirectoryFiles = ConfigurationManager.AppSettings["DirectoryInputFiles"];
 
 Generer un identifiant unique
 -----------------------------
