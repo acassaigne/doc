@@ -48,6 +48,19 @@ au protocole git (ou ssh) ::
 
   git remote set-url origin git@github.com:username/repo.git
 
+Fecth et voir les différences
+-----------------------------
+
+Identifier les différences du dépôt distant ::
+
+  git fetch
+  git diff origin/master
+
+Ensuite merge si on le souhaite ::
+
+  git merge origin/master
+
+
 Supprimer un repo distant (remote)
 ----------------------------------
 
