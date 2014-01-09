@@ -85,6 +85,29 @@ Pour Markdown
 - https://github.com/demon386/SmartMarkdown
 - https://github.com/ttscoff/MarkdownEditing
 
+
+# Sublime Text & Markdown
+
+Installer le package MardownEditing, [voir cette url](https://github.com/SublimeText-Markdown/MarkdownEditing/tree/master) 
+
+## Configuration
+
+Ouvrir le fichier *Markdown.sublime-settings* qui se trouve dans le répertoire des packages. Pour obtenir le répertoire des packages utiliser le *menu preferences->Browse Packages...* ensuite ouvrir le répertoire *MarkdownEditing*
+
+Changer ces valeurs 
+```init
+"color_scheme": "Packages/MarkdownEditing/MarkdownEditor.tmTheme",
+...
+"draw_centered": false,
+...
+"line_numbers": true,
+```
+
+Test 
+```sql
+SELECT * FROM TOTO;
+```
+
 Url pluging
 -----------
 
