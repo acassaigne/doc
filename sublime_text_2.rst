@@ -6,6 +6,8 @@ Les pluging que j'utilise
 
 Faisant un usage régulier de pyhton, restructured Text :
 
+- Packages/Perv - Color Scheme/Perv Orange.tmTheme
+- MarkdownEditing
 - SublimeRope python
 - Sublime Text Restructured Text Code Completion (rst)
 - Theme utilisé Thomorow Color Schema (Tomorrow Night Eighties)
