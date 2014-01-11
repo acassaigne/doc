@@ -593,6 +593,12 @@ pour encode en haute qualité vers dvd ::
 
     mencoder 00001.m2ts -o /virt/series/cars2.mpeg -aid 4352 -vf scale=720:576,harddup -of mpeg -mpegopts format=dvd:tsaf -oac lavc -ovc lavc -lavcopts acodec=ac3:abitrate=448:vcodec=mpeg2video:vrc_buf_size=1835:vrc_maxrate=9800:vbitrate=5000:keyint=15:vstrict=0:aspect=16/9:trell:mbd=2:precmp=2:subcmp=2:cmp=2:dia=-10:predia=-10:cbp:mv0:vqmin=1:lmin=1:dc=10 -ofps 25 -srate 48000 -af lavcresample=48000
 
+image magick
+------------
+
+Remplacer fond transparent par un fond blanc ::
+
+  convert -flatten img1.png img1-white.png
 
 convertir un fichier en utf8
 ----------------------------
