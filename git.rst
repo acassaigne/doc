@@ -394,15 +394,18 @@ Pour ajouter les répertoires vides utiliser -d ::
 
   git clean -x -d
 
-Export son projet dans une archive
-----------------------------------
+Réaliser une archive
+--------------------
 
 la commande est de ce type ::
 
-  git archive --format=zip --prefix=chemin_prefix_pour_le_zip/ HEAD > filename.zip
+  git archive --format=zip --prefix=SQL_exo/ SQL: -o ../SQL_exo.zip
 
-Ne pas oublier le / à la fin du chemin_prefix_pour_le_zip car sinon ca devient un prefix pour tous les fichiers
-qui seront inclus dans le zip.
+C'est la syntaxe `SQL:` qui donne le nom de la branche pour laquelle on souhaite réaliser une archive.
+L'option `-o` indique le nom du fichier de sortie.
+
+Ne pas oublier le `/` à la fin du SQL_exo car sinon ça devient un prefix pour tous les fichiers qui seront inclus dans le zip.
+
 
 Travailler avec les branches
 ============================
@@ -418,6 +421,11 @@ Pour se placer dans la branche ::
 Voir les branches ::
 
   git branch -a
+
+Copier/dupliquer une branche existante ::
+
+  git branch copie_branche branche_existante
+
 
 Pousser une nouvelle branche vers le dépôt d'origine ::
 
@@ -478,8 +486,27 @@ p4merge.
 Rebase
 ======
 
-Documentation intéressante : http://mettadore.com/analysis/a-simple-git-rebase-workflow-explained/
-également intéressant à étudier :
+Comment rebaser la branche bleue sur master ::
+
+  git checkout bleue
+  git rebase master
+
+Une bonne idée est de dupliquer la branche que l'on rebase ici la branche bleue ::
+
+  git branch copie_bleue bleue
+  git checkout bleue
+  git rebase master
+
+Maintenant nous souhaitons amener master au niveau du dernier commmit de la branch bleue
+afin d'avoir un historique linéaire ::
+
+  git checkout master
+  git rebase bleue
+
+Voir exemple ici http://mettadore.com/analysis/a-simple-git-rebase-workflow-explained/
+
+
+Resources également intéressant à étudier :
 
 - http://randyfay.com/content/rebase-workflow-git
 - http://gitready.com/intermediate/2009/01/31/intro-to-rebase.html
