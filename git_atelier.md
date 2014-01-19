@@ -328,6 +328,18 @@ Chercher au sein des fichiers stockés dans l'index
 git grep --cached -e 'STRING' -- '*.c'
 ```
 
+## Bonus branche 
+- Copier une branche 
+```shell
+git branch copie_branche branche_existante
+```
+- Pour créer une branche sur un ancien commit 
+```shell
+git branch ma_branche 96a31f2314c091121996
+```
+
+
+
 ## Les Tags
 
 positionner un tag sur le commit courant
@@ -543,20 +555,20 @@ git stash apply stash@{2}
 
 ## Exemple de rebase 1/2
 Création des commits sur la branche master  
-Commit 1m
+Commit C1 
 ```shell
 echo Hello > a.txt
 git add a.txt
 git commit -m "Hello"
 ```
-Commit 2m
+Commit C2 
 ```shell
 echo Salut >> a.txt
 git add a.txt
 git commit -m "Salut"
 git branch bleue
 ```
-Commit 3m
+Commit C3
 ```shell
 echo Bonjour>> a.txt
 git add a.txt
@@ -566,14 +578,14 @@ git commit -m "Bonjour"
 
 ## Exemple de rebase 2/2
 Création des commits de la branche bleue  
-Commit 1b
+Commit B1
 ```shell
 git checkout bleue
 echo Eau > b.txt
 git add b.txt
 git commit -m "Eau"
 ```
-Commit 2b
+Commit B2
 ```shell
 echo Vin >> b.txt
 git add b.txt
@@ -589,12 +601,56 @@ git rebase master
 et maintenant amenons master au niveau de bleue
 ```shell
 git checkout master
+git merge bleue 
+ou
 git rebase bleue
 ```
 
 
-## Rewind et rebase avec conflit !
-TODO... 
+## Rebase avec conflit !
+![Image](images/rebase_conflit2.png)
+
+
+#Voici la séquence de commit
+- utiliser le script `atelier_git_rebase2.sh`
+```shell
+git init .
+echo Hello > a.txt
+git add a.txt
+git commit -m "C1 file a.txt"
+echo Salut >> a.txt
+git add a.txt
+git commit -m "C2 file a.txt"
+echo Bonjour >> a.txt
+git add a.txt
+git commit -m "C3 file a.txt"
+git branch bleue HEAD~1
+git checkout bleue
+echo Eau > b.txt
+git add b.txt
+git commit -m "B1 file b.txt"
+echo Good morning >> a.txt
+git add a.txt
+git commit -m "B2 file a.txt"
+```
+
+
+## Go pour le rebase
+```shell
+git checkout bleue
+git rebase master
+...conflit... 
+...pour le résoudre utiliser...
+...les mêmes outils que le merge...
+git status
+vi a.txt
+git add a.txt
+git rebase --continue
+```
+
+
+
+# Ré-écrire l'histoire
 
 
 ## Rebase pour réécrire l'histoire
@@ -618,12 +674,16 @@ git commit -m "C4 file b.txt"
 ```
 
 
-## Ok réécrivons l'histoire !
+## Surnoms aux commits passés
 - Connaissez-vous la notation ? 
  + HEAD~1
  + HEAD~2
 - Cela se traduit par HEAD moins un commit pour HEAD~1
-et HEAD moins deux comits pour HEAD~2.
+et HEAD moins deux commits pour HEAD~2.
+![Image](images/ref_commits2.png)
+
+
+## Ok réécrivons l'histoire !
 - Pour réécrire l'histoire des quatre derniers commit voici la commande
 ```shell
 git rebase -i HEAD~4
@@ -636,13 +696,13 @@ choisir les opérations à réaliser.
 ## Rebase -i 
 Le fichier a ce format 
 ```shell
-pick 76d2aa4 C1 fixme message
-pick dc8f5fe C2
-pick 81d308a C3
-pick 9d58418 C4
+pick 76d2aa4 C1 message de commit
+pick dc8f5fe C2 message de commit
+pick 81d308a C3 message de commit 
+pick 9d58418 C4 message de commit
 ```
 - Les commits sont affichés dans un ordre chronologique (du plus ancien au plus récent).
-Les opérations sont : pick, reword, edit, squash, fixup, exec
+Les opérations possibles sont : pick, reword, edit, squash, fixup, exec
 Consulter https://help.github.com/articles/interactive-rebase
 
 
@@ -662,10 +722,6 @@ Consulter https://help.github.com/articles/interactive-rebase
 ![Image](images/edit2.png)
 
 
-# rebase -i 
-nous allons obtenir ceci.
-
-
 ## Le coup du commit vide !
 Gloups ! 
 Presque !
@@ -674,6 +730,25 @@ D'où le
 git init .
 git commit --allow-empty -m "Empty commit, it's base commit !"
 ```
+
+
+
+## cherry-pick
+- Réaliser des prélévements de commit.
+```shell
+git checkout bleue
+git cherry-pick 427a6e4666466b77e18bcd01b949a3aef8e34bd8
+ ``` 
+- On prélève le commit `427a6e4666` (de la branche master) pour le copier 
+ sur la branche bleue.
+
+
+## Tester le cherry-pick
+- Lancer le script :
+```shell
+atelier_git_cherry-pick.sh
+```
+-  pour se retrouver dans la situation souhaitée
 
 
 ###Bien plus à découvrir
