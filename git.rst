@@ -414,9 +414,18 @@ Pour créer une branche ::
 
   git branch ma_branche
 
+Pour créer et se positionner directement dans la branche utiliser la commande suivante ::
+
+  git checkout -b ma_branche
+
 Pour se placer dans la branche ::
 
   git checkout ma_branche
+
+Pour créer une branche sur un ancien commit ::
+
+  git branch ma_branche 96a31f2314c091121996
+  git checkout -b ma_branche 96a31f2314c091121996
 
 Voir les branches ::
 
