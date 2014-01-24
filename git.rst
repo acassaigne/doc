@@ -788,7 +788,8 @@ Configuration git difftool sous windows
 Editeur
 +++++++
 
-Configurer l'appel à l'éditeur notepad++ ajouter dans le fichier .gitconfig ::
+Configurer l'appel à l'éditeur notepad++ pour cela ajouter dans le fichier
+.gitconfig ::
 
   [core]
     editor = npp.sh
@@ -843,6 +844,13 @@ p4merge
   cmd =  "p4merge.exe  \"$BASE\" \"$REMOTE\" \"$LOCAL\" \"$MERGED\" "
   keepTemporaries = false
   keepBackup = false
+
+kdiff3
+++++++
+
+A regarder pour la partie confguration : lire 
+http://naleid.com/blog/2012/01/12/how-to-use-kdiff3-as-a-3-way-merge-tool-with-mercurial-git-and-tower-app
+
 
 Travailler avec github
 ======================
@@ -912,6 +920,26 @@ Pull request et branch, apporter des corrections à une PR.
 Voir les informations ci-dessous.
 http://stackoverflow.com/questions/7947322/preferred-github-workflow-for-updating-a-pull-request-after-code-review
 
+
+Workflow
+========
+
+- http://sixrevisions.com/web-development/git-tips/
+- http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html
+- https://sandofsky.com/blog/git-workflow.html
+- https://sandofsky.com/images/fast_forward.pdf
+- http://randyfay.com/node/103
+- http://randyfay.com/comment/1093#comment-1093
+- http://randyfay.com/node/89
+
+Client GUI 
+==========
+
+- http://www.git-tower.com/
+- http://www.sourcetreeapp.com/
+
+- gitg
+ 
 Autre commandes git
 ===================
 
