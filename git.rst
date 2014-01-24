@@ -729,10 +729,13 @@ Vérifier la valeur de la variable $HOME au sein d'un gitbash.
 
     echo $HOME
 
-c'est à cet emplacement que vous trouverez le fichier ``.gitconfig``
+c'est à cet emplacement que vous placerez le fichier ``.gitconfig``
 
 Configuration git difftool sous windows
 ---------------------------------------
+
+Winmerge
+++++++++
 
 Configurer git afin d'utiliser winmerge.
 Pour cela il faut créer un shell à placer dans un endroit où le PATH windows pointe ::
@@ -754,6 +757,27 @@ Ensuite configurer le .gitconfig comme ceci ::
      prompt = false
 
 Et c'est tout !
+
+
+p4merge
++++++++
+
+[diff]
+  tool = p4merge
+
+[difftool]
+  prompt = false
+
+[difftool "p4merge"]
+  cmd = "p4merge.exe \"$LOCAL\" \"$REMOTE\""
+
+[merge]
+  tool = p4merge
+
+[mergetool "p4merge"]
+  cmd =  "p4merge.exe  \"$BASE\" \"$REMOTE\" \"$LOCAL\" \"$MERGED\" "
+  keepTemporaries = false
+  keepBackup = false
 
 Travailler avec github
 ======================
