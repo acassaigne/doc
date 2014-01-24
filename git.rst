@@ -709,6 +709,20 @@ Ces informations spécifiques au dépôt sont stockés dans le fichier .git/conf
         name = acassaigne
         email = anthony.cassaigne@gmail.com
 
+
+Configuration github
+====================
+Pour configurer l'authentifcation github sur un débpôt local donné ::
+
+  vi .git/config 
+  modifier remote "origin"
+  [remote "origin"]
+        url = https://acassaigne:PASSWORD@github.com/acassaigne/doc.git
+
+  [user]
+        name = acassaigne
+        email = anthony.cassaigne@gmail.com
+
 les alias
 ---------
 
