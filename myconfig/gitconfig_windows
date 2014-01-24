@@ -1,0 +1,48 @@
+[user]
+	name = Anthony Cassaigne
+	email = a.cassaigne@paulboye.fr
+
+[push]
+	default = simple
+
+[alias]
+    st = status
+    df = diff
+    co = checkout
+    ci = commit
+    br = branch
+    amend = commit --amend # edit le dernier commit
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    lp = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	notpush = !git fetch && git log origin/master..master
+	notpull = !git fetch && git log master..origin/master
+
+[diff]
+	tool = p4merge
+
+[difftool "winmerge"]
+    cmd = "winmerge.sh \"$LOCAL\" \"$REMOTE\""
+
+[difftool]
+	prompt = false
+
+[difftool "p4merge"]
+	cmd = "p4merge.exe \"$LOCAL\" \"$REMOTE\""
+
+[merge]
+	tool = p4merge
+
+[mergetool "p4merge"]
+	cmd =  "p4merge.exe  \"$BASE\" \"$REMOTE\" \"$LOCAL\" \"$MERGED\" "
+	keepTemporaries = false
+	keepBackup = false
+
+[mergetool "p3"]
+	cmd =  "p4merge.exe  \"$LOCAL\" \"$REMOTE\" "
+	keepTemporaries = false
+	keepBackup = false
+[core]
+	editor = npp.sh
