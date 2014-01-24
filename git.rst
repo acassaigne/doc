@@ -336,6 +336,15 @@ Comparer deux versions d'un fichier ::
 
   git difftool 5b3bbf4 00911bd test.txt
 
+Comparer une version antérieur avec la version du working directory ::
+
+  git difftool 9572205 test.txt
+
+Pour comparaison avec la dernière version commité ::
+
+  git difftool test.txt
+
+
 Générer un patch et appliquer
 =============================
 
@@ -757,8 +766,6 @@ Les alias de log ::
 
 
 
-
-
 Git sous windows
 ================
 
@@ -777,6 +784,20 @@ c'est à cet emplacement que vous placerez le fichier ``.gitconfig``
 
 Configuration git difftool sous windows
 ---------------------------------------
+
+Editeur
++++++++
+
+Configurer l'appel à l'éditeur notepad++ ajouter dans le fichier .gitconfig ::
+
+  [core]
+    editor = npp.sh
+
+Et placer ce script shell `npp.sh` dans le répertoire d'installation de
+git/bin ::
+
+  #!/bin/sh
+  "C:\Program Files\Notepad++\notepad++.exe" -multiInst "$*" 
 
 Winmerge
 ++++++++
