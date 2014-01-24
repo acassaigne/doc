@@ -583,14 +583,36 @@ Voila c'est terminé.
 
 La serie d'opération est inspirée de ce lien https://help.github.com/articles/syncing-a-fork
 
-Identifier les commits non poussés
-==================================
+Identifier les commits de différence entre le local et le remote
+================================================================
 
-Verifier si tous les commits sont poussés ::
+Verifier si tous les commits sont poussés, trois solutions
 
+solution 1 ::
+
+  git fetch
   git diff --stat origin/master..
+
+solution 2 ::
+  git fetch
   git diff origin/master..HEAD
+
+solution 3 ::
   git push --dry-run
+
+Voir les commits présents dans origin/master et non présent dans master (non tirés) ::
+  
+  git fetch
+  git log master..origin/master
+
+Voir les commmits présents dans master et non présent dans origin/master (non poussés)
+
+  git fetch
+  git log origin/master..master
+
+
+Voir également ici
+http://stackoverflow.com/questions/7057950/commit-differences-between-local-and-remote
 
 commit vide
 -----------
@@ -701,6 +723,14 @@ Quelques alias possibles à définir dans le fichier `.gitconfig` ::
       amend = commit --amend # editer le dernier commit
       lol = log --graph --decorate --pretty=oneline --abbrev-commit
       lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
+Mes alias
++++++++++
+
+Voir les commits non poussés et non tirés ::
+
+  git config --global alias.notpush '!git fetch && git log origin/master..master' 
+  git config --global alias.notpull '!git fetch && git log master..origin/master'
 
 Voir à cette url pour les alias lol et lola http://blog.kfish.org/2010/04/git-lola.html
 
