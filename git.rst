@@ -112,6 +112,13 @@ ne sont pas dans l'index ::
    git diff
    git diff --stat
 
+Lister les fichier de l'index ::
+
+  git ls-files
+  git ls-files -s
+
+l'option -s donne plus d'informations.
+
 Annulation des modifications
 ============================
 
@@ -717,6 +724,11 @@ Les alias de log ::
 
 Git sous windows
 ================
+
+Installer git sous ubuntu ::
+
+  sudo apt-get install git
+  sudo apt-get install git-gui
 
 Installer msysgit.
 
