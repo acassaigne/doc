@@ -343,6 +343,15 @@ Comparer deux versions d'un fichier ::
 
   git difftool 5b3bbf4 00911bd test.txt
 
+Comparer une version antérieur avec la version du working directory ::
+
+  git difftool 9572205 test.txt
+
+Pour comparaison avec la dernière version commité ::
+
+  git difftool test.txt
+
+
 Générer un patch et appliquer
 =============================
 
@@ -590,14 +599,36 @@ Voila c'est terminé.
 
 La serie d'opération est inspirée de ce lien https://help.github.com/articles/syncing-a-fork
 
-Identifier les commits non poussés
-==================================
+Identifier les commits de différence entre le local et le remote
+================================================================
 
-Verifier si tous les commits sont poussés ::
+Verifier si tous les commits sont poussés, trois solutions
 
+solution 1 ::
+
+  git fetch
   git diff --stat origin/master..
+
+solution 2 ::
+  git fetch
   git diff origin/master..HEAD
+
+solution 3 ::
   git push --dry-run
+
+Voir les commits présents dans origin/master et non présent dans master (non tirés) ::
+  
+  git fetch
+  git log master..origin/master
+
+Voir les commmits présents dans master et non présent dans origin/master (non poussés)
+
+  git fetch
+  git log origin/master..master
+
+
+Voir également ici
+http://stackoverflow.com/questions/7057950/commit-differences-between-local-and-remote
 
 commit vide
 -----------
@@ -694,6 +725,20 @@ Ces informations spécifiques au dépôt sont stockés dans le fichier .git/conf
         name = acassaigne
         email = anthony.cassaigne@gmail.com
 
+
+Configuration github
+====================
+Pour configurer l'authentifcation github sur un débpôt local donné ::
+
+  vi .git/config 
+  modifier remote "origin"
+  [remote "origin"]
+        url = https://acassaigne:PASSWORD@github.com/acassaigne/doc.git
+
+  [user]
+        name = acassaigne
+        email = anthony.cassaigne@gmail.com
+
 les alias
 ---------
 
@@ -709,6 +754,14 @@ Quelques alias possibles à définir dans le fichier `.gitconfig` ::
       lol = log --graph --decorate --pretty=oneline --abbrev-commit
       lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 
+Mes alias
++++++++++
+
+Voir les commits non poussés et non tirés ::
+
+  git config --global alias.notpush '!git fetch && git log origin/master..master' 
+  git config --global alias.notpull '!git fetch && git log master..origin/master'
+
 Voir à cette url pour les alias lol et lola http://blog.kfish.org/2010/04/git-lola.html
 
 Les alias de log ::
@@ -717,8 +770,6 @@ Les alias de log ::
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     lp = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-
-
 
 
 
@@ -741,10 +792,28 @@ Vérifier la valeur de la variable $HOME au sein d'un gitbash.
 
     echo $HOME
 
-c'est à cet emplacement que vous trouverez le fichier ``.gitconfig``
+c'est à cet emplacement que vous placerez le fichier ``.gitconfig``
 
 Configuration git difftool sous windows
 ---------------------------------------
+
+Editeur
++++++++
+
+Configurer l'appel à l'éditeur notepad++ pour cela ajouter dans le fichier
+.gitconfig ::
+
+  [core]
+    editor = npp.sh
+
+Et placer ce script shell `npp.sh` dans le répertoire d'installation de
+git/bin ::
+
+  #!/bin/sh
+  "C:\Program Files\Notepad++\notepad++.exe" -multiInst "$*" 
+
+Winmerge
+++++++++
 
 Configurer git afin d'utiliser winmerge.
 Pour cela il faut créer un shell à placer dans un endroit où le PATH windows pointe ::
@@ -766,6 +835,34 @@ Ensuite configurer le .gitconfig comme ceci ::
      prompt = false
 
 Et c'est tout !
+
+
+p4merge
++++++++
+
+[diff]
+  tool = p4merge
+
+[difftool]
+  prompt = false
+
+[difftool "p4merge"]
+  cmd = "p4merge.exe \"$LOCAL\" \"$REMOTE\""
+
+[merge]
+  tool = p4merge
+
+[mergetool "p4merge"]
+  cmd =  "p4merge.exe  \"$BASE\" \"$REMOTE\" \"$LOCAL\" \"$MERGED\" "
+  keepTemporaries = false
+  keepBackup = false
+
+kdiff3
+++++++
+
+A regarder pour la partie confguration : lire 
+http://naleid.com/blog/2012/01/12/how-to-use-kdiff3-as-a-3-way-merge-tool-with-mercurial-git-and-tower-app
+
 
 Travailler avec github
 ======================
@@ -835,6 +932,26 @@ Pull request et branch, apporter des corrections à une PR.
 Voir les informations ci-dessous.
 http://stackoverflow.com/questions/7947322/preferred-github-workflow-for-updating-a-pull-request-after-code-review
 
+
+Workflow
+========
+
+- http://sixrevisions.com/web-development/git-tips/
+- http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html
+- https://sandofsky.com/blog/git-workflow.html
+- https://sandofsky.com/images/fast_forward.pdf
+- http://randyfay.com/node/103
+- http://randyfay.com/comment/1093#comment-1093
+- http://randyfay.com/node/89
+
+Client GUI 
+==========
+
+- http://www.git-tower.com/
+- http://www.sourcetreeapp.com/
+
+- gitg
+ 
 Autre commandes git
 ===================
 
