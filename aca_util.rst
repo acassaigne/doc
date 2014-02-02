@@ -600,6 +600,10 @@ Remplacer fond transparent par un fond blanc ::
 
   convert -flatten img1.png img1-white.png
 
+Rotation d'une image ::
+
+  convert -rotate 270 img1.png img1-rotate.png
+
 convertir un fichier en utf8
 ----------------------------
 
