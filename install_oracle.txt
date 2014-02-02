@@ -1,0 +1,280 @@
+= Installation Oracle 11gR2 sur Red Hat 6.2 =
+
+== Resource utile ==
+
+La note Oracle suivant (accessible via le support metalink) permet de
+déterminer les pré-requis mémoire et en espace disque nécessaires pour
+l'installation des binaires Oracle 11.2.0.2 :
+
+* Oracle Database on Unix AIX,HP-UX,Linux,Mac OS X,Solaris,Tru64 Unix Operating Systems Installation and Configuration Requirements Quick Reference (8.0.5 to 11.2) [ID 169706.1]
+
+=== Installation Oracle 11.2.0.3 ===
+
+
+==== Configuration réseau ====
+
+Avant de se lancer dans l'installation des binaires oracle il est
+indispensable de renseigner le fichier /etc/hosts sinon
+l'assistant d'oracle produit une erreur lors du démarrage.
+
+Si votre serveur se nomme (hostname) ora1.main.glb.corp.local il convient d'avoir cette ligne dans votre fichier /etc/hosts
+
+  ip1.ip2.ip3.ip4	ora ora1.main.glb.corp.local
+
+où ip1.ip2.ip3.ip4 représente l'adresse ip de votre serveur.
+
+==== Vérifier l'espace /tmp ====
+
+Il vous faut au moins 200 Mo de disponible.
+
+
+==== Création de l'utilisateur Oracle ====
+
+Il faut créer les groupes unix oinstall  et dba :
+
+  groupadd oinstall
+  groupadd dba
+  useradd -u 1500 -c "Oracle software owner" -g oinstall -G dba oracle
+  passwd oracle
+
+Vérifier que le paramétrages des valeurs ulimit est correctement
+positionné, vous devez avoir au minimum ces valeurs dans le fichier
+/etc/security/limits.conf :
+
+    oracle               soft    nofile          4096
+    oracle               hard    nofile          65536
+    oracle 		 soft 	 nproc 		 2047
+    oracle 		 hard 	 nproc 		 16384
+
+Création des répertoires pour les binaires :
+
+  mkdir -p /product/oracle
+  chown -R oracle.oinstall /product
+
+Copier/transférer les fichiers zip des binaires 11.2.0.2 ::
+
+    p10404530_112030_Linux-x86-64_1of7.zip
+    p10404530_112030_Linux-x86-64_2of7.zip
+
+Se connecter avec l'utilisateur unix oracle :
+
+  ssh -X oracle@mon_serveur_dest
+
+note: Ne pas oublier l'option -X pour réaliser l'export du display.
+
+=== Pré-requis au niveau des librairies ===
+
+Vérification de la présence des rmp nécessaires  :
+
+    rpm -q --qf '%{NAME}-%{VERSION}-%{RELEASE}  (%{ARCH})\n'    \
+    binutils compat-libstdc++-33 elfutils-libelf glibc glibc-common \
+    libaio libgcc libstdc++ make pdksh unixODBC \
+    elfutils-libelf-devel glibc-headers glibc-kernheaders glibc-devel \
+    gcc libstdc++-devel gcc-c++ libaio-devel sysstat unixODBC-devel
+    
+
+Cette commandes ne doit pas vous retourner de message de type :
+
+     le paquetage elfutils-libelf-devel n'est pas installé
+     ou
+     package elfutils-libelf-devel is not installed
+
+
+La liste des 21 rpm qui sont nécessaires est la suivante :
+
+* binutils-2.15.92.0.2-25
+* compat-libstdc++-33-3.2.3-47.3
+* elfutils-libelf-0.97.1-5
+* glibc-2.3.4-2.41
+* glibc-common-2.3.4-2.41
+* libaio-0.3.105-2
+* libgcc-3.4.6-10
+* libstdc++-3.4.6-10
+* make-3.80-7.EL4
+* pdksh-5.2.14-30.6
+* unixODBC-2.2.11-1.RHEL4.1
+* elfutils-libelf-devel-0.97.1-5.i386.rpm
+* glibc-headers-2.3.4-2.41.i386.rpm
+* glibc-kernheaders-2.4-9.1.103.EL.i386.rpm
+* glibc-devel-2.3.4-2.41.i386.rpm
+* gcc-3.4.6-10.i386.rpm
+* libstdc++-devel-3.4.6-10.i386.rpm
+* gcc-c++-3.4.6-10.i386.rpm
+* libaio-devel-0.3.105-2.i386.rpm
+* sysstat-5.0.5-19.el4.i386.rpm
+* unixODBC-devel-2.2.11-1.RHEL4.1.i386.rpm
+    
+
+note: Pour les CentOS dont la version est supérieur à 5.X, le package pdksh
+n'existe plus. Il convient de récupérer ce package ainsi 
+rpm -ivh ftp://ftp.pbone.net/mirror/archive.download.redhat.com/pub/redhat/linux/6.1/en/os/i386/RedHat/RPMS/pdksh-5.2.14-1.i386.rpm   
+remplacer 6.1 par votre version cible.
+
+=== Paramétrage du kernel Linux ===
+
+Paramétrage du kernel doit être le suivant :
+   
+   kernel.shmall = 2097152
+   kernel.shmmni = 4096
+    
+Les paramètres kernel.shmmni et kernel.shmall sont par défaut sur
+la plupart des distributions Linux correctement configurés.
+
+Ensuite il vous faut modifier la valeur du paramètre kernel.shmmax
+le fixer à une valeur représentant en octets la moitié de la mémoire
+RAM sans dépasser les 4Go.
+  
+Il faut également avoir le paramétrage kernel suivant :
+
+    net.ipv4.ip_forward = 0
+    net.ipv4.conf.default.rp_filter = 1
+    net.ipv4.conf.default.accept_source_route = 0
+    kernel.sysrq = 0
+    kernel.core_uses_pid = 1
+    kernel.shmmax = 1073741824
+    kernel.sem = 250 32000 100 128
+    fs.file-max = 6815744
+    fs.aio-max-nr = 1048576
+    net.ipv4.ip_local_port_range = 9000 65500
+    net.core.rmem_default = 262144
+    net.core.rmem_max = 4194304
+    net.core.wmem_default = 262144
+    net.core.wmem_max = 1048576
+
+note: Toutes ces modifications de paramétrage du kernel Linux sont à réaliser au sein du fichier /etc/sysctl.conf.
+
+note: Après modification du fichier /etc/sysctl.conf la commande sysctl -p vous permet de prendre en considération ces modifications.
+
+=== Scheduler I/O Red Hat et Oracle === 
+
+Lorsque le serveur red hat est constitué d'une machine virtuelle il est recommandé de configurer le scheduler I/O en mode '''deadline'''.
+
+Pour vérifier cette configuration utiliser cette commande en étant root :
+
+    cat /sys/block/MyDisk/queue/scheduler
+
+En remplaçant MyDisk par l'un des devices du serveur.
+
+Pour rendre permanent ce changement de paramétrage, il convient de consulter les ingénieurs système.
+
+=== Installation des binaires ===
+
+Voici les fichiers dont vous devez disposer pour installer Oracle 11gR2 (11.2.0.3).
+
+* p10404530_112030_Linux-x86-64_1of7.zip
+* p10404530_112030_Linux-x86-64_2of7.zip
+
+Une fois les deux fichiers zip ''p10404530_112030_Linux-x86-64_1of7.zip'' et ''p10404530_112030_Linux-x86-64_2of7.zip'' décompressés vous devez avoir un répertoire ''database'' dans lequel se trouve "l’exécutable" ''runInstaller''. 
+
+Attention vous devez disposer d'un client X11.
+
+Les commandes à exécuter pour lancer l'installation sont :
+
+   cd database
+   ./runInstaller
+
+Ensuite suivre ce paramétrage au sein de l'assistant d'installation.
+ 
+Etape : paramétrage email pour les mises à jour disponible
+
+[[Fichier:ScreenShot014.jpg]]
+
+
+Etape : Téléchargement des derniers patch, sélectionner Skip software updates
+
+[[Fichier:ScreenShot015.jpg]]
+
+
+Etape : option d'installation, prendre l'option install database software only
+
+[[Fichier:ScreenShot016.jpg]]
+
+Etape : Grid installation option, installation en mode single instance
+
+[[Fichier:ScreenShot017.jpg]]
+
+Etape : selection de la langue prendre anglais uniquement
+
+[[Fichier:ScreenShot018.jpg]]
+
+Etape : selection du type de licence prendre Enterprise Edition
+
+[[Fichier:ScreenShot019.jpg]]
+
+Etape : selection des options à installer
+
+[[Fichier:ScreenShot020.jpg]]
+
+Etape : emplacement des binaires
+
+[[Fichier:ScreenShot021.jpg]]
+
+Etape : emplacement de l'orainventory (repository des produits oracle installés)
+
+[[Fichier:ScreenShot022.jpg]]
+
+Etape : paramétrages des groupes unix
+
+[[Fichier:ScreenShot023.jpg]]
+
+Etape : récapitulatif du paramétrage de l'installation
+
+[[Fichier:ScreenShot024.jpg]]
+
+Etape : Installation des binaires
+
+[[Fichier:ScreenShot026.jpg]]
+
+Etape : à la fin de l'installation exécuter les scripts demandés avec le compte utilisateur root
+
+[[Fichier:ScreenShot027.jpg]]
+
+Etape : fin de l'installation
+
+[[Fichier:ScreenShot028.jpg]]
+
+=== Oracle Enterprise manager / DBconsole ===
+
+Avec la version 11gR2 oracle a inclus la partir monitoring de la base de données via une interface web, l'adresse de cette application est https://192.168.2.47:1158/em
+
+Si cette application n'est pas démarrée il suffit de se connecter sur le serveur hébergeant la base de données et de lancer cette commande :
+
+   emctl start dbconsole
+
+
+
+=== Installation SDE (ST_GEOMETRY) sur Oracle ===
+
+=== Installer le schéma SDE et ses packages ===
+
+Depuis un PC ayant l'application ArcCataloge lancer la fonction create enterprise geodb.
+Cette fonctionnalité se trouve dans l'onglet ArcToolbox --> Data Management --> geodatabase admin
+
+Après cette étape le schéma SDE est créé, il est préférable de changer le profil oracle afin qu'il n'y ait pas d'expiration du mot de passe.
+Pour cela lancer la commande :
+
+  alter profile default limit password_life_time unlimited;
+
+=== Installer la librairie partagée libst_shapelib.so ===
+Prendre cette librairie à partir d'un PC où est installé ArcCatalog. Habituellement il est possible de la trouver à cet emplacement :
+  
+  C:\Program Files (x86)\ArcGIS\Desktop10.1\DatabaseSupport\Oracle\Linux64\libst_shapelib.so
+
+Cette librairie se trouve dans le répertoire où est installé ArcCatalog.
+
+Copier cette librairie libst_shapelib.so dans le répertoire $ORACLE_HOME/lib, voici les commandes unix à exécuter :
+
+  cp libst_shapelib.so $ORACLE_HOME/lib
+  cd $ORACLE_HOME/lib
+  chmod a+x libst_shapelib.so
+
+=== Changer le chemin de l'objet library Oracle ===
+
+Utiliser ces commandes :
+
+  sqlplus sde/sde
+  CREATE OR REPLACE LIBRARY st_shapelib AS 
+  '/product/oracle/product/11.2.0.3/lib/libst_shapelib.so';
+
+Il faut adapter le chemin /product/oracle/product/11.2.0.3/lib/libst_shapelib.so à votre contexte d'installation des binaires Oracle.
+Ce chemin doit répresenter $ORACLE_HOME/lib
