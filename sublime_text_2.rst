@@ -90,13 +90,13 @@ Pour Markdown
 
 # Sublime Text & Markdown
 
-Installer le package MardownEditing, [voir cette url](https://github.com/SublimeText-Markdown/MarkdownEditing/tree/master) 
+Installer le package MardownEditing, [voir cette url](https://github.com/SublimeText-Markdown/MarkdownEditing/tree/master)
 
 ## Configuration
 
 Ouvrir le fichier *Markdown.sublime-settings* qui se trouve dans le répertoire des packages. Pour obtenir le répertoire des packages utiliser le *menu preferences->Browse Packages...* ensuite ouvrir le répertoire *MarkdownEditing*
 
-Changer ces valeurs 
+Changer ces valeurs
 ```init
 "color_scheme": "Packages/MarkdownEditing/MarkdownEditor.tmTheme",
 ...
@@ -105,7 +105,7 @@ Changer ces valeurs
 "line_numbers": true,
 ```
 
-Test 
+Test
 ```sql
 SELECT * FROM TOTO;
 ```
@@ -114,3 +114,11 @@ Url pluging
 -----------
 
 - http://blog.goetter.fr/post/24671859680/sublime-text-2-raccourcis-et-plugins
+
+
+Pair programming
+----------------
+
+Configurer le plugin floobits
+
+- https://floobits.com/help/plugins/sublime
