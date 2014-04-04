@@ -1,6 +1,11 @@
 
 Quelques éléments d'information sur python
 
+# Classe abstraite & interface : Abstract Class module abc
+http://stackoverflow.com/questions/2124190/how-do-i-implement-interfaces-in-python
+http://stackoverflow.com/questions/372042/difference-between-abstract-class-and-interface-in-python
+http://dbader.org/blog/abstract-base-classes-in-python
+
 # Environnement de développement
 
 ## Virtualenv
