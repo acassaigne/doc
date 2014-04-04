@@ -1,27 +1,58 @@
-******
-Python
-******
 
-Installation pip sous win32
-===========================
+Quelques éléments d'information sur python
 
-Commencer par installer setup-tools ::
+# Environnement de développement
+
+## Virtualenv
+
+### création d'un environnement 
+
+utilise la commande 
+
+
+```shell
+mkvirtualenv -a devel/blog blog
+```
+### activer/désactiver un environnement 
+
+```shell
+workon env_name
+deactivate
+```
+
+## Plugin JEDI
+
+Sublime text avec ce plugin https://github.com/srusskih/SublimeJEDI
+Pour activer l'autocomplétion utiliser cette configuration :
+
+    # User/Preferences.sublime-settings or User/Python.sublime-settings
+    {
+        // ...
+        "auto_complete_triggers": [{"selector": "source.python", "characters": "."}],
+    }
+
+Pour sauter à la définition d'une méthode ctrl+shift+G
+
+# Installation pip sous win32
+
+Commencer par installer setup-tools :
 
    http://stackoverflow.com/questions/4750806/how-to-install-pip-on-windows
 
- récupérer le exe (setuptools-0.7.7.win32-py2.7.‌exe) à cette adresse http://www.lfd.uci.edu/~gohlke/pythonlibs/#setuptools
+Récupérer le exe (setuptools-0.7.7.win32-py2.7.‌exe) à cette adresse http://www.lfd.uci.edu/~gohlke/pythonlibs/#setuptools
 ensuite récuperer le exe d'installation de pip (pip-1.3.1.win32-py2.7.‌exe) à cette adresse
 http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip
 
-Lancer un simple serveur http
------------------------------
+# Quelques commandes utiles
 
-Voici la commande ::
+## Lancer un simple serveur http
+
+Voici la commande :
 
     cd mon_repertoire_wwww
     python -m SimpleHTTPServer
 
-Changer le port, pour le positionner sur le port 80 (par exemaple) ::
+Changer le port, pour le positionner sur le port 80 (par exemaple) :
 
     cd mon_repertoire_wwww
     python -m SimpleHTTPServer 80
