@@ -556,6 +556,8 @@ Créer un nouveau fichier mkv de zéro, ne possédant qu'un seul sous-titre ::
 
   mkvmerge -o new_file.mkv -S "Sherlock.s01e02.The.Blind.Banker.480p.x264-MiNi.mkv" "Sherlock - 1x02 - The Blind Banker.HDTV.Fov.fr.srt"
 
+Ajouter sous-titre avec
+
 Transformer fichier mkv en dvd avec sous-titre.
 -----------------------------------------------
 
@@ -572,6 +574,28 @@ En haute qualité avec sous-titre :
    mencoder game01.mkv -o h4_sound.mpeg     -utf8 -sub g1_u8.sub -subpos 97 -fontconfig -font Arial -subfont-text-scale 2.5     -vf scale=720:576,harddup -of mpeg -mpegopts format=dvd:tsaf     -audiofile test.ac3 -oac lavc -ovc lavc     -lavcopts vcodec=mpeg2video:vrc_buf_size=1835:vrc_maxrate=9800:vbitrate=5000:keyint=15:vstrict=0:aspect=16/9:trell:mbd=2:precmp=2:subcmp=2:cmp=2:dia=-10:predia=-10:cbp:mv0:vqmin=1:lmin=1:dc=10     -ofps 25 -srate 48000 -af lavcresample=48000
 
 Encodage plus léger en terme de qualité.
+
+
+extraction sous-titre depuis mkv
+--------------------------------
+
+utiliser la commande mkvinfo pour obtenir les informations ::
+
+  mkvinfo fichier.mkv
+
+Chercher ces informations ::
+
+      + A track
+     |  + Track number: 3 (track ID for mkvmerge & mkvextract: 2)
+     |  + Track UID: 3270254256
+     |  + Track type: subtitles
+     |  + Lacing flag: 0
+     |  + Codec ID: S_TEXT/UTF8
+     |  + Language: und
+
+Ensuite utiliser la commande suivante pour extraire ::
+
+   mkvextract tracks Gravity.mkv 2:grv.srt
 
 
 Blue-Ray et ré-encodage pour DVD
