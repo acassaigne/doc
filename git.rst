@@ -542,8 +542,8 @@ Resources également intéressant à étudier :
 Pull, Push et Synchronisation
 =============================
 
-Synchronisation avec un dépôt forké
------------------------------------
+Synchronisation avec un dépôt forké github
+------------------------------------------
 
 Vous avez cloné un dépôt depuis github et vous souhaitez le synchroniser pour cela il vous procéder ainsi.
 
@@ -595,7 +595,7 @@ Il ne nous reste plus qu'a réaliser un `git push` ::
 
    git push
 
-Voila c'est terminé.
+Voila c'est terminé. Ici on vient de pusher sur notre dépôt.
 
 La serie d'opération est inspirée de ce lien https://help.github.com/articles/syncing-a-fork
 
@@ -617,7 +617,7 @@ solution 3 ::
   git push --dry-run
 
 Voir les commits présents dans origin/master et non présent dans master (non tirés) ::
-  
+
   git fetch
   git log master..origin/master
 
@@ -730,7 +730,7 @@ Configuration github
 ====================
 Pour configurer l'authentifcation github sur un débpôt local donné ::
 
-  vi .git/config 
+  vi .git/config
   modifier remote "origin"
   [remote "origin"]
         url = https://acassaigne:PASSWORD@github.com/acassaigne/doc.git
@@ -759,7 +759,7 @@ Mes alias
 
 Voir les commits non poussés et non tirés ::
 
-  git config --global alias.notpush '!git fetch && git log origin/master..master' 
+  git config --global alias.notpush '!git fetch && git log origin/master..master'
   git config --global alias.notpull '!git fetch && git log master..origin/master'
 
 Voir à cette url pour les alias lol et lola http://blog.kfish.org/2010/04/git-lola.html
@@ -810,7 +810,7 @@ Et placer ce script shell `npp.sh` dans le répertoire d'installation de
 git/bin ::
 
   #!/bin/sh
-  "C:\Program Files\Notepad++\notepad++.exe" -multiInst "$*" 
+  "C:\Program Files\Notepad++\notepad++.exe" -multiInst "$*"
 
 Winmerge
 ++++++++
@@ -860,7 +860,7 @@ p4merge
 kdiff3
 ++++++
 
-A regarder pour la partie confguration : lire 
+A regarder pour la partie confguration : lire
 http://naleid.com/blog/2012/01/12/how-to-use-kdiff3-as-a-3-way-merge-tool-with-mercurial-git-and-tower-app
 
 
@@ -944,14 +944,14 @@ Workflow
 - http://randyfay.com/comment/1093#comment-1093
 - http://randyfay.com/node/89
 
-Client GUI 
+Client GUI
 ==========
 
 - http://www.git-tower.com/
 - http://www.sourcetreeapp.com/
 
 - gitg
- 
+
 Autre commandes git
 ===================
 
