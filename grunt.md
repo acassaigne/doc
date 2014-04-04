@@ -21,6 +21,15 @@ npm init
 npm install grunt --save-dev
 ```
 
+### Utiliser un dépôt européen 
+Pour changer de serveur source utiliser l'option `--registry http://registry.npmjs.eu/`
+
+La commande à utiliser est :
+
+```shell
+ npm --registry http://registry.npmjs.eu/ install  md2html --save-dev
+```
+
 La derniere commande permet d'installer grunt localement.
 
 ### gruntifier votre projet
