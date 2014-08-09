@@ -54,9 +54,14 @@ Pour la gestion du son les commandes linux sont ::
 Source http://askubuntu.com/questions/97936/terminal-command-to-set-audio-volume
 
 Pour augmenter ou diminuer le son sous linux les commandes sont :
-Augmenter de 5% ::
+Augmenter de 5% 
+
+.. code:: bash
 
     amixer -D pulse sset Master 5%+
+    ls terminal-command-to-set-audio-volume
+    cd truc
+    export HHH='toto'
 
 Diminuer de 5% ::
 
@@ -71,15 +76,19 @@ Autre resources à regarder
 --------------------------
 
 focuse after minimize
+
 - http://www.mail-archive.com/awesome@naquadah.org/msg04610.html
 
 autre ressource pour la configuration
+
 - http://blog.wolf.am/archives/2011/04/25/awesome_wm/
 
 Pour configurer finement avec calendrier etc...
+
 - http://urukrama.wordpress.com/2008/07/10/first-steps-with-awesome-window-manager/
 
 resources
+
 - http://ubuntuforums.org/showthread.php?t=675292
 - http://urukrama.wordpress.com/2008/07/10/first-steps-with-awesome-window-manager/
 - http://awesome.naquadah.org/wiki/My_first_awesome
