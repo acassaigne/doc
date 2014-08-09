@@ -31,7 +31,7 @@ Pour déterminer le scope à positionner lors de la définition d'une snippet ::
 
 Pour identifier le scope il y a le raccourci ctrl+shift+alt+p à taper dans le
 fichier source, apparait alors en bas dans la bar de status le scope pour ce
-firchier.
+fichier.
 
 On peut également trouver l'information sur cette page :
 - https://gist.github.com/iambibhas/4705378

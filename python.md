@@ -61,3 +61,8 @@ Changer le port, pour le positionner sur le port 80 (par exemaple) :
 
     cd mon_repertoire_wwww
     python -m SimpleHTTPServer 80
+
+
+# Resources
+
+* [Pourquoi python est lent](http://jakevdp.github.io/blog/2014/05/09/why-python-is-slow/)

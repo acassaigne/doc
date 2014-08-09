@@ -591,7 +591,7 @@ Le résultat attendu est quelque chose de ce type ::
    create mode 100644 about_anonymous_function.exs
    create mode 100644 todo/about_regex.exs
 
-Il ne nous reste plus qu'a réaliser un `git push` ::
+Il ne nous reste plus qu'a réaliser un `git push` vers notre dépôt (fork de celui d'origine) ::
 
    git push
 
