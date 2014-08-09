@@ -15,9 +15,17 @@ Racourcis
 - relancer awesome mod + shit + r
 - lancer une application mod + r
 - fermer une fenetre mod + shift + c
+- pour déplacer les application dans le mode courant mod + shitf + j ou k
+ 
+Pour envoyer un application vers un tag il faut utiliser cette combinaison ::
 
-Envoyer un application vers un tag mod + shift + tag
-exemple mod + shift + 2 envoit l'application active vers le tag 2
+   mod + shift + tag
+
+exemple : ::
+
+   mod + shift + 2 
+
+envoit l'application active vers le tag 2
 
 Quelques astuces 
 ----------------
@@ -95,3 +103,4 @@ resources
 - http://awesome.naquadah.org/wiki/Awesome_3.x
 - http://awesome.naquadah.org/wiki/My_first_awesome
 - http://vincent.bernat.im/en/blog/2012-awesome-wm.html#awesome-configuration
+
