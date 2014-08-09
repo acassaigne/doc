@@ -16,6 +16,12 @@ Faisant un usage régulier de pyhton, restructured Text :
 A regarder !! http://sametmax.com/liste-des-plugins-sublime-text-que-jutilise/
 http://outofmemoryblog.blogspot.fr/2012/08/python-development-with-sublime-text-2.html
 
+Entrer un code UTF8
+===================
+
+Taper ctrl+Alt+shift+u puis le code unicode 0153 pour le o dans le e.
+Puis espace
+
 Snippet
 =======
 
@@ -86,6 +92,8 @@ Pour Markdown
 - http://www.macstories.net/roundups/sublime-text-2-and-markdown-tips-tricks-and-links/
 - https://github.com/demon386/SmartMarkdown
 - https://github.com/ttscoff/MarkdownEditing
+- article à lire http://www.macstories.net/roundups/sublime-text-2-and-markdown-tips-tricks-and-links/
+
 
 
 # Sublime Text & Markdown
