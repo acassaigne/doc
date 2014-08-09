@@ -875,6 +875,27 @@ La version ssh ::
 
   git clone ssh://gituser@hostname/home/gituser/anthony_atelier
 
+Changer url https du dépôt distant en une url ssh. Pour cela il faut 
+modifier l'url https://github.com/user/repo2.git en git@github.com:user/repo2.git
+
+Commencer par visualiser l'url du dépôt distant ::
+
+  git remote -v
+
+résultat ::
+
+  origin  https://github.com/acassaigne/doc (fetch)
+  origin  https://github.com/acassaigne/doc (push)
+
+qui est à changer en ::
+  
+  origin  git@github.com:acassaigne/doc (fetch)
+  origin  git@github.com:acassaigne/doc (push)
+
+pour cela utiliser la commande ::
+
+  git remote set-url origin git@github.com:acassaigne/doc
+
 Autre version sans le prefix ssh mais on passe bien en ssh et en indiquant
 un chemin relatif ::
 
