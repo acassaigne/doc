@@ -15,9 +15,9 @@ Racourcis
 - relancer awesome mod + shit + r
 - lancer une application mod + r
 - fermer une fenetre mod + shift + c
-- pour déplacer les application dans le mode courant mod + shitf + j ou k
+- pour déplacer les applications dans le mode courant mod + shitf + j ou k
  
-Pour envoyer un application vers un tag il faut utiliser cette combinaison ::
+Pour envoyer une application vers un tag il faut utiliser cette combinaison ::
 
    mod + shift + tag
 
