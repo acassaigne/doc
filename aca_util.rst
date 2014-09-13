@@ -620,6 +620,10 @@ pour encode en haute qualité vers dvd ::
 image magick
 ------------
 
+Réaliser un screenshot avec image magick ::
+
+  import my_screenshot.jpg
+
 Remplacer fond transparent par un fond blanc ::
 
   convert -flatten img1.png img1-white.png
