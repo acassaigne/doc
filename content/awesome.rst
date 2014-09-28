@@ -80,6 +80,48 @@ Positionner le niveau sonore à 50% ::
     amixer -D pulse sset Master 50%
 
 
+Wifi
+----
+
+Il convient d'utiliser la network-manager pour commencer tester si le service est démarré.
+
+Utiliser la commande suivante.
+
+.. code:: bash
+
+    sudo service network-manager status
+
+Résultat attendu.
+
+.. code::bash
+
+    network-manager start/running, process 917
+
+En ligne de commande vous pouvez lancer la commande suivante pour voir la liste des réseaux wifi.
+
+.. code:: bash
+
+   nmcli con list 
+
+Pour se connecter il faut utiliser la commande :
+
+.. code:: bash
+
+    nmcli con up id SSID
+
+Pour lancer l'applet taper dans un terminal la commande suivante :
+
+.. code:: bash
+
+    nm-applet 
+    
+Voir les ressources suivantes :
+
+- http://askubuntu.com/questions/150658/awesome-wm-does-not-search-for-wifi-networks
+- http://askubuntu.com/questions/46677/unable-get-my-wireless-network-connection-under-awesome-window-manager
+
+
+
 Autre resources à regarder 
 --------------------------
 
