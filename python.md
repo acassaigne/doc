@@ -1,4 +1,5 @@
 
+
 Quelques éléments d'information sur python
 
 # Classe abstraite & interface : Abstract Class module abc
