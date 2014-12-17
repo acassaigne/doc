@@ -7,13 +7,25 @@ Paramétrage par défaut
 Le thème utilisé par défaut est :
 Color Scheme - Default ==> Monokai
 
+
+Plugin pour markdown
+====================
+
+- Installer le thème "Perv Color Scheme" et installer le plugin "Markdown Extended".
+
+Le plugin "Markdown Extend" permet d'étendre la reconnaissance de la coloration
+notamment sur la partie code embarqué du type
+
+  ```python
+  mon code python
+  ```
+
 Les pluging que j'utilise
 =========================
 
 Faisant un usage régulier de pyhton, restructured Text :
 
 - Packages/Perv - Color Scheme/Perv Orange.tmTheme
-- MarkdownEditing
 - SublimeRope python
 - Sublime Text Restructured Text Code Completion (rst)
 - Theme utilisé Thomorow Color Schema (Tomorrow Night Eighties)
