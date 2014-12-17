@@ -57,6 +57,8 @@ On peut également trouver l'information sur cette page :
 snippets que j'utilise
 ----------------------
 
+Le nom du fichier doit avoir pour extension `.sublime-snippet`
+
 Pour le markdown ::
 
     <snippet>
@@ -72,6 +74,7 @@ Pour le markdown ::
     </snippet>
 
 
+Pour tester la snippet taper les caractères du trigger et ensuite `ctrl+space`.
 
 Ma configuration
 ================
