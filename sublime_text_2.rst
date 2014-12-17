@@ -1,6 +1,12 @@
 Sublime Text 2
 **************
 
+Paramétrage par défaut
+======================
+
+Le thème utilisé par défaut est :
+Color Scheme - Default ==> Monokai
+
 Les pluging que j'utilise
 =========================
 
