@@ -8,6 +8,10 @@ Le thème utilisé par défaut est :
 Color Scheme - Default ==> Monokai
 
 
+shortcut keyboard
+=================
+
+
 Plugin pour markdown
 ====================
 
@@ -151,3 +155,8 @@ Pair programming
 Configurer le plugin floobits
 
 - https://floobits.com/help/plugins/sublime
+
+Shorcut key
+===========
+
+ctrl+F2 : Toggle Bookmark 
