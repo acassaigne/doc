@@ -15,3 +15,14 @@ La solution est la création du répertoire `C:\Users\PACE07711\AppData\Roaming\
 
 Ces modules installés avec l'option -g : `npm install -g module_name`
 sont stockés dans le répertoire `C:\Users\PACE07711\AppData\Roaming\npm\node_modules`
+
+### Resources et blogs
+
+- http://howtonode.org/
+- http://thechangelog.com/tagged/nodejs/
+- http://blog.nodejitsu.com/
+- http://nodetuts.com/
+
+#### Création d'application desktop avec nodejs
+
+- http://www.trueinteractions.com/tint2/docs/

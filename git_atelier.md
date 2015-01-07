@@ -18,7 +18,7 @@ git config --list
 On peut également éditer le fichier ~`/.gitconfig`
 
 
-##Cloner un dépôt
+## Cloner un dépôt
 [cloner_depot]: images/cloner_depot.jpg  "Optional title attribute"
 ```shell
 git clone http://url/depot.git
@@ -26,7 +26,7 @@ git clone http://url/depot.git
 ![Texte][cloner_depot]
 
 
-##Cloner un dépôt via ssh
+## Cloner un dépôt via ssh
 - En indiquant un chemin absolut.
 ```shell
 git clone ssh://gituser@little/home/gituser/anthony_atelier
@@ -43,7 +43,7 @@ git clone gituser@little:anthony_atelier
 
 
 ## Un travail en autonomie
-²![Image](images/travail_deconnecte.jpg)
+![Image](images/travail_deconnecte.jpg)
 
 
 ## La gestion de l'index
@@ -751,7 +751,7 @@ atelier_git_cherry-pick.sh
 -  pour se retrouver dans la situation souhaitée
 
 
-###Bien plus à découvrir
+### Bien plus à découvrir
 - rebase
 - cherrypick
 - le hunk expliquer

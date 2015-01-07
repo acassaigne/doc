@@ -2,6 +2,11 @@
 Ruby
 ****
 
+resource
+========
+
+- http://www.lee-dohm.com/2013/05/05/thoughts-on-why-ruby-is-awesome.html
+
 Objets
 ======
 
