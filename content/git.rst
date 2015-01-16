@@ -70,12 +70,17 @@ Utiliser la commande ::
 
   git remote rm origin
 
-
 Identifier les fichiers d'un commit
 -----------------------------------
 La commande est ::
 
   git ls-tree --name-only -r SHA1
+
+Lister les fichier sous versionning 
+-----------------------------------
+La commande est ::
+
+  git ls-tree -r master --name-only
 
 
 Gestion de l'index
@@ -253,6 +258,14 @@ Donne la différence entre la HEAD et WORKING DIRECTORY.
 
 voir url http://www.gitguys.com/topics/git-diff/
 
+
+Commit
+======
+
+Modifier le dernier message de commit ::
+
+  git commit --amend
+  git commit --amend -m "Nouveau message"
 
 Voyage dans le temps
 ====================
