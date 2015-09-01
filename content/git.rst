@@ -774,9 +774,8 @@ Les alias de log ::
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
 
-
-Git sous windows
-================
+Git sous Linux
+==============
 
 Installer git sous ubuntu ::
 
@@ -795,6 +794,10 @@ Vérifier la valeur de la variable $HOME au sein d'un gitbash.
     echo $HOME
 
 c'est à cet emplacement que vous placerez le fichier ``.gitconfig``
+
+Git sous windows
+================
+
 
 Configuration git difftool sous windows
 ---------------------------------------
